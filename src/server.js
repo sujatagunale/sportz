@@ -1,48 +1,20 @@
 import http from 'http';
 import express from 'express';
-import { WebSocketServer } from 'ws';
+import { createMatchRouter } from './routes/matches.js';
+import { createWebSocketServer } from './ws/server.js';
 
 const app = express();
 const PORT = 3000;
 
+app.use(express.json());
 app.get('/', (req, res) => {
-  res.send('Hello Express!');
+  res.send('Sports Commentary API');
 });
 
 const server = http.createServer(app);
-const wss = new WebSocketServer({ server, path: '/ws' });
-const clients = new Set();
+const { broadcastCommentary } = createWebSocketServer(server);
 
-wss.on('connection', (socket) => {
-  clients.add(socket);
-  socket.send(JSON.stringify({ type: 'welcome' }));
-
-  socket.on('message', (data) => {
-    let message;
-    try {
-      message = JSON.parse(data.toString());
-    } catch {
-      return;
-    }
-
-    if (message.type === 'commentary') {
-      const payload = JSON.stringify({
-        type: 'commentary',
-        data: message.data,
-      });
-
-      for (const client of clients) {
-        if (client.readyState === 1) {
-          client.send(payload);
-        }
-      }
-    }
-  });
-
-  socket.on('close', () => {
-    clients.delete(socket);
-  });
-});
+app.use('/matches', createMatchRouter({ broadcastCommentary }));
 
 server.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT}`);

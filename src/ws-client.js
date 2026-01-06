@@ -1,10 +1,12 @@
 import { WebSocket } from 'ws';
 
 const WS_URL = process.env.WS_URL || 'ws://localhost:3000/ws';
-const ws = new WebSocket(WS_URL);
+const MATCH_ID = process.env.MATCH_ID || process.argv[2];
+const url = MATCH_ID ? `${WS_URL}?matchId=${MATCH_ID}` : WS_URL;
+const ws = new WebSocket(url);
 
 ws.on('open', () => {
-  console.log(`🔌 Connected to ${WS_URL}`);
+  console.log(`🔌 Connected to ${url}`);
 });
 
 ws.on('message', (data) => {
