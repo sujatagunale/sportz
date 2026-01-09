@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "node --watch src/server.js",
+    "start": "node src/server.js",
     "db:generate": "drizzle-kit generate",
     "db:migrate": "drizzle-kit migrate",
     "seed": "node src/seed/seed.js",
