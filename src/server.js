@@ -12,9 +12,9 @@ app.get('/', (req, res) => {
 });
 
 const server = http.createServer(app);
-const { broadcastCommentary } = createWebSocketServer(server);
+const { broadcastCommentary, broadcastScoreUpdate } = createWebSocketServer(server);
 
-app.use('/matches', createMatchRouter({ broadcastCommentary }));
+app.use('/matches', createMatchRouter({ broadcastCommentary, broadcastScoreUpdate }));
 
 server.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT}`);

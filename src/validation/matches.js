@@ -18,4 +18,11 @@ export const createMatchSchema = z.object({
     .refine((value) => !Number.isNaN(Date.parse(value)), {
       message: 'startTime must be a valid ISO date string',
     }),
+  homeScore: z.coerce.number().int().nonnegative().optional(),
+  awayScore: z.coerce.number().int().nonnegative().optional(),
+});
+
+export const updateScoreSchema = z.object({
+  homeScore: z.coerce.number().int().nonnegative(),
+  awayScore: z.coerce.number().int().nonnegative(),
 });

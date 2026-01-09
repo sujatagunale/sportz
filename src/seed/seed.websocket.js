@@ -1,10 +1,10 @@
 import fs from 'fs/promises';
-import { WebSocket } from 'ws';
+import { db, pool } from '../db/db.js';
+import { matches, commentary } from '../db/schema.js';
 
 const API_URL = process.env.API_URL || 'http://localhost:3000';
-const WS_URL =
-  process.env.WS_URL || API_URL.replace(/^http/, 'ws') + '/ws';
 const DELAY_MS = 250;
+const MATCH_COUNT = Number.parseInt(process.env.MATCH_COUNT || '2', 10);
 
 async function loadCommentaryFeed() {
   const fileUrl = new URL('../data/commentary.long.json', import.meta.url);
@@ -41,6 +41,12 @@ async function createCommentary(matchId, entry) {
       minute: entry.minute,
       message: entry.message,
       metadata: entry.metadata ?? { source: 'seed.websocket' },
+      eventType: entry.eventType,
+      period: entry.period,
+      sequence: entry.sequence,
+      actor: entry.actor,
+      team: entry.team,
+      tags: entry.tags,
     }),
   });
 
@@ -50,37 +56,34 @@ async function createCommentary(matchId, entry) {
 }
 
 async function seed() {
+  await db.delete(commentary);
+  await db.delete(matches);
+  console.log('🧹 Cleared existing matches and commentary');
+
   const feed = await loadCommentaryFeed();
-  const match = await createMatch();
-  console.log('✅ Match created:', match);
-
-  const ws = new WebSocket(`${WS_URL}?matchId=${match.id}`);
-
-  ws.on('open', () => {
-    console.log(`🔌 WebSocket connected: ${WS_URL}`);
-  });
-
-  ws.on('message', (data) => {
-    try {
-      const payload = JSON.parse(data.toString());
-      if (payload.type === 'commentary') {
-        console.log('📡 Broadcast:', payload.data.message);
-      }
-    } catch {
-      console.log('📡 Broadcast:', data.toString());
-    }
-  });
-
-  for (const entry of feed) {
-    await createCommentary(match.id, entry);
-    console.log('📣 Posted commentary:', entry.message);
-    await new Promise((resolve) => setTimeout(resolve, DELAY_MS));
+  const count = Number.isNaN(MATCH_COUNT) || MATCH_COUNT < 1 ? 1 : MATCH_COUNT;
+  const matchList = [];
+  for (let i = 0; i < count; i += 1) {
+    const match = await createMatch();
+    matchList.push(match);
+    console.log('✅ Match created:', match);
   }
 
-  ws.close();
+  for (let i = 0; i < feed.length; i += 1) {
+    const entry = feed[i];
+    const target = matchList[i % matchList.length];
+    await createCommentary(target.id, entry);
+    console.log(`📣 [Match ${target.id}] Posted commentary:`, entry.message);
+    await new Promise((resolve) => setTimeout(resolve, DELAY_MS));
+  }
 }
 
 seed().catch((err) => {
   console.error('❌ Seed error:', err);
   process.exit(1);
+});
+
+process.on('beforeExit', async () => {
+  await pool.end();
+  console.log('🔌 Database connection closed');
 });

@@ -6,6 +6,10 @@ async function main() {
   try {
     console.log('🏟️ Running sports commentary CRUD demo...');
 
+    await db.delete(commentary);
+    await db.delete(matches);
+    console.log('🧹 Cleared existing matches and commentary');
+
     // CREATE MATCH
     const [match] = await db
       .insert(matches)
@@ -26,8 +30,14 @@ async function main() {
       .values({
         matchId: match.id,
         minute: 12,
+        sequence: 1,
+        period: '1st innings',
+        eventType: 'boundary',
+        actor: 'Virat Kohli',
+        team: 'India',
         message: 'FOUR! Beautiful cover drive.',
         metadata: { batsman: 'Virat Kohli', bowler: 'Starc' },
+        tags: ['shot', 'boundary'],
       })
       .returning();
 

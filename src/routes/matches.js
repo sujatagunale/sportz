@@ -6,6 +6,7 @@ import {
   createMatchSchema,
   listMatchesQuerySchema,
   matchIdParamSchema,
+  updateScoreSchema,
 } from '../validation/matches.js';
 import {
   createCommentarySchema,
@@ -18,7 +19,7 @@ function formatZodError(error) {
   return error.flatten();
 }
 
-export function createMatchRouter({ broadcastCommentary }) {
+export function createMatchRouter({ broadcastCommentary, broadcastScoreUpdate }) {
   const router = Router();
 
   router.get('/', async (req, res) => {
@@ -61,6 +62,8 @@ export function createMatchRouter({ broadcastCommentary }) {
           awayTeam: parsed.data.awayTeam,
           status: parsed.data.status,
           startTime: new Date(parsed.data.startTime),
+          homeScore: parsed.data.homeScore ?? 0,
+          awayScore: parsed.data.awayScore ?? 0,
         })
         .returning();
 
@@ -135,8 +138,14 @@ export function createMatchRouter({ broadcastCommentary }) {
         .values({
           matchId,
           minute: bodyParsed.data.minute ?? null,
+          sequence: bodyParsed.data.sequence ?? null,
+          period: bodyParsed.data.period ?? null,
+          eventType: bodyParsed.data.eventType ?? null,
+          actor: bodyParsed.data.actor ?? null,
+          team: bodyParsed.data.team ?? null,
           message: bodyParsed.data.message,
           metadata: bodyParsed.data.metadata ?? null,
+          tags: bodyParsed.data.tags ?? null,
         })
         .returning();
 
@@ -147,6 +156,50 @@ export function createMatchRouter({ broadcastCommentary }) {
       res.status(201).json({ data: comment });
     } catch (err) {
       res.status(500).json({ error: 'Failed to create commentary' });
+    }
+  });
+
+  router.patch('/:id/score', async (req, res) => {
+    const paramsParsed = matchIdParamSchema.safeParse(req.params);
+    if (!paramsParsed.success) {
+      return res
+        .status(400)
+        .json({ error: 'Invalid match id', details: formatZodError(paramsParsed.error) });
+    }
+
+    const bodyParsed = updateScoreSchema.safeParse(req.body);
+    if (!bodyParsed.success) {
+      return res
+        .status(400)
+        .json({ error: 'Invalid payload', details: formatZodError(bodyParsed.error) });
+    }
+
+    const matchId = paramsParsed.data.id;
+
+    try {
+      const [updated] = await db
+        .update(matches)
+        .set({
+          homeScore: bodyParsed.data.homeScore,
+          awayScore: bodyParsed.data.awayScore,
+        })
+        .where(eq(matches.id, matchId))
+        .returning();
+
+      if (!updated) {
+        return res.status(404).json({ error: 'Match not found' });
+      }
+
+      if (broadcastScoreUpdate) {
+        broadcastScoreUpdate(matchId, {
+          homeScore: updated.homeScore,
+          awayScore: updated.awayScore,
+        });
+      }
+
+      res.json({ data: updated });
+    } catch (err) {
+      res.status(500).json({ error: 'Failed to update score' });
     }
   });
 
