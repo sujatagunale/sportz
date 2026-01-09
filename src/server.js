@@ -4,6 +4,16 @@ import express from 'express';
 import { createMatchRouter } from './routes/matches.js';
 import { createWebSocketServer } from './ws/server.js';
 
+process.on('uncaughtException', (err) => {
+  console.error('Uncaught exception:', err);
+  process.exit(1);
+});
+
+process.on('unhandledRejection', (reason) => {
+  console.error('Unhandled rejection:', reason);
+  process.exit(1);
+});
+
 const app = express();
 const PORT = Number(process.env.PORT) || 3000;
 const HOST = process.env.HOST || '0.0.0.0';
