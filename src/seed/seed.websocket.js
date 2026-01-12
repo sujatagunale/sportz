@@ -1,3 +1,4 @@
+import "dotenv/config";
 import fs from "fs/promises";
 
 const DELAY_MS = Number.parseInt(process.env.DELAY_MS || "250", 10);
@@ -17,15 +18,15 @@ async function loadSeedData() {
   const parsed = await readJsonFile(DEFAULT_DATA_FILE);
 
   if (Array.isArray(parsed)) {
-    return { feed: parsed };
+    return { feed: parsed, matches: [] };
   }
 
   if (Array.isArray(parsed.commentary)) {
-    return { feed: parsed.commentary };
+    return { feed: parsed.commentary, matches: parsed.matches ?? [] };
   }
 
   if (Array.isArray(parsed.feed)) {
-    return { feed: parsed.feed };
+    return { feed: parsed.feed, matches: parsed.matches ?? [] };
   }
 
   throw new Error(
@@ -40,6 +41,27 @@ async function fetchMatches(limit = 100) {
   }
   const payload = await response.json();
   return Array.isArray(payload.data) ? payload.data : [];
+}
+
+async function createMatch(seedMatch) {
+  const response = await fetch(`${API_URL}/matches`, {
+    method: "POST",
+    headers: { "content-type": "application/json" },
+    body: JSON.stringify({
+      sport: seedMatch.sport,
+      homeTeam: seedMatch.homeTeam,
+      awayTeam: seedMatch.awayTeam,
+      status: seedMatch.status ?? "live",
+      startTime: seedMatch.startTime ?? new Date().toISOString(),
+      homeScore: seedMatch.homeScore ?? 0,
+      awayScore: seedMatch.awayScore ?? 0,
+    }),
+  });
+  if (!response.ok) {
+    throw new Error(`Failed to create match: ${response.status}`);
+  }
+  const payload = await response.json();
+  return payload.data;
 }
 
 async function insertCommentary(matchId, entry) {
@@ -135,26 +157,55 @@ async function updateMatchScore(matchId, homeScore, awayScore) {
 async function seed() {
   console.log(`📡 Seeding via API: ${API_URL}`);
 
-  const { feed } = await loadSeedData();
+  const { feed, matches: seedMatches } = await loadSeedData();
   const matchesList = await fetchMatches();
-  if (matchesList.length === 0) {
-    throw new Error("No matches found in the database.");
+
+  const matchMap = new Map();
+  const matchKeyMap = new Map();
+  for (const match of matchesList) {
+    const key = `${match.sport}|${match.homeTeam}|${match.awayTeam}`;
+    if (!matchKeyMap.has(key)) {
+      matchKeyMap.set(key, match);
+    }
+    matchMap.set(match.id, {
+      match,
+      score: { home: match.homeScore ?? 0, away: match.awayScore ?? 0 },
+    });
   }
-  const matchMap = new Map(
-    matchesList.map((match) => [
-      match.id,
-      {
+
+  if (Array.isArray(seedMatches) && seedMatches.length > 0) {
+    for (const seedMatch of seedMatches) {
+      const key = `${seedMatch.sport}|${seedMatch.homeTeam}|${seedMatch.awayTeam}`;
+      let match = matchKeyMap.get(key);
+      if (!match) {
+        match = await createMatch(seedMatch);
+        matchKeyMap.set(key, match);
+      }
+      if (Number.isInteger(seedMatch.id)) {
+        matchMap.set(seedMatch.id, {
+          match,
+          score: { home: match.homeScore ?? 0, away: match.awayScore ?? 0 },
+        });
+      }
+      matchMap.set(match.id, {
         match,
         score: { home: match.homeScore ?? 0, away: match.awayScore ?? 0 },
-      },
-    ])
-  );
+      });
+    }
+  }
+
+  if (matchMap.size === 0) {
+    throw new Error("No matches found or created in the database.");
+  }
 
   for (let i = 0; i < feed.length; i += 1) {
     const entry = feed[i];
     const target = getMatchEntry(entry, matchMap);
     if (!target) {
-      console.warn("⚠️  Skipping entry without valid matchId:", entry.message);
+      console.warn(
+        "⚠️  Skipping entry: matchId missing or not found:",
+        entry.message
+      );
       continue;
     }
     const match = target.match;

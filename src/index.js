@@ -1,8 +1,8 @@
 import 'dotenv/config';
 import http from 'http';
 import express from 'express';
-import { createMatchRouter } from './src/routes/matches.js';
-import { createWebSocketServer } from './src/ws/server.js';
+import { createMatchRouter } from './routes/matches.js';
+import { createWebSocketServer } from './ws/server.js';
 
 process.on('uncaughtException', (err) => {
   console.error('Uncaught exception:', err);
