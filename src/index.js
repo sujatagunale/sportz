@@ -1,6 +1,7 @@
 import 'dotenv/config';
 import http from 'http';
 import express from 'express';
+import cors from 'cors';
 import { createMatchRouter } from './routes/matches.js';
 import { createWebSocketServer } from './ws/server.js';
 
@@ -19,6 +20,7 @@ const PORT = Number(process.env.PORT) || 3000;
 const HOST = process.env.HOST || '0.0.0.0';
 
 app.use(express.json());
+app.use(cors());
 app.get('/', (req, res) => {
   res.send('Sports Commentary API');
 });
