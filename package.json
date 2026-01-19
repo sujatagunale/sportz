@@ -8,16 +8,13 @@
     "start": "node src/index.js",
     "db:generate": "drizzle-kit generate",
     "db:migrate": "drizzle-kit migrate",
-    "seed": "node src/seed/seed.js",
-    "seed:websocket": "node src/seed/seed.websocket.js",
-    "ws:client": "node src/ws-client.js"
+    "seed": "node src/seed/seed.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "type": "module",
   "dependencies": {
-    "@neondatabase/serverless": "^1.0.2",
     "cors": "^2.8.5",
     "dotenv": "^17.2.3",
     "drizzle-orm": "^0.45.1",

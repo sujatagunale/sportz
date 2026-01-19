@@ -51,8 +51,6 @@ Server runs at:
 
 - `npm run dev` — start server with watch mode
 - `npm run seed` — seed DB with a basic match + commentary entry
-- `npm run seed:websocket` — create a match and stream commentary over WS
-- `npm run ws:client` — simple WS client for testing
 
 ## REST API
 
