@@ -30,6 +30,7 @@ Match object:
   "awayTeam": "Liverpool FC",
   "status": "live",
   "startTime": "2025-02-01T12:00:00.000Z",
+  "endTime": "2025-02-01T13:45:00.000Z",
   "homeScore": 1,
   "awayScore": 0,
   "createdAt": "2025-02-01T12:00:00.000Z"
@@ -93,8 +94,8 @@ Body:
   "sport": "football",
   "homeTeam": "FC Neon",
   "awayTeam": "Drizzle United",
-  "status": "live",
   "startTime": "2025-02-01T12:00:00.000Z",
+  "endTime": "2025-02-01T13:45:00.000Z",
   "homeScore": 0,
   "awayScore": 0
 }
@@ -108,7 +109,8 @@ Response:
 
 Validation:
 
-- `sport`, `homeTeam`, `awayTeam`, `status` are non-empty strings.
+- `status` is computed from `startTime` and `endTime`.
+- `endTime` must be a valid ISO date string after `startTime`.
 - `startTime` must be a valid ISO date string.
 - `homeScore`, `awayScore` are optional non-negative integers.
 

@@ -2,7 +2,8 @@ import { Router } from "express";
 import { desc, eq } from "drizzle-orm";
 import { db } from "../db/db.js";
 import { matches, commentary } from "../db/schema.js";
-import { matchIdParamSchema } from "../validation/matches.js";
+import { MATCH_STATUS, matchIdParamSchema } from "../validation/matches.js";
+import { syncMatchStatus } from "../utils/match-status.js";
 import {
   createCommentarySchema,
   listCommentaryQuerySchema,
@@ -79,13 +80,29 @@ commentaryRouter.post("/", async (req, res) => {
 
   try {
     const [event] = await db
-      .select({ id: matches.id })
+      .select({
+        id: matches.id,
+        status: matches.status,
+        startTime: matches.startTime,
+        endTime: matches.endTime,
+      })
       .from(matches)
       .where(eq(matches.id, matchId))
       .limit(1);
 
     if (!event) {
       return res.status(404).json({ error: "Match not found" });
+    }
+
+    await syncMatchStatus(event, async (nextStatus) => {
+      await db
+        .update(matches)
+        .set({ status: nextStatus })
+        .where(eq(matches.id, matchId));
+    });
+
+    if (event.status !== MATCH_STATUS.LIVE) {
+      return res.status(409).json({ error: "Match is not live" });
     }
 
     const [comment] = await db

@@ -67,10 +67,14 @@ Server runs at:
   "sport": "football",
   "homeTeam": "FC Neon",
   "awayTeam": "Drizzle United",
-  "status": "live",
-  "startTime": "2025-02-01T12:00:00.000Z"
+  "startTime": "2025-02-01T12:00:00.000Z",
+  "endTime": "2025-02-01T13:45:00.000Z"
 }
 ```
+
+Allowed status values: `scheduled`, `live`, `finished`.
+
+Status is computed from `startTime` and `endTime`.
 
 ### List commentary for a match
 

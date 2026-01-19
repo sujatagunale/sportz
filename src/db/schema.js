@@ -1,5 +1,6 @@
 import {
   pgTable,
+  pgEnum,
   serial,
   text,
   timestamp,
@@ -11,13 +12,20 @@ import {
  * Matches table
  * Stores high-level sports match metadata
  */
+export const matchStatusEnum = pgEnum('match_status', [
+  'scheduled',
+  'live',
+  'finished',
+]);
+
 export const matches = pgTable('matches', {
   id: serial('id').primaryKey(),
   sport: text('sport').notNull(), // cricket, football, basketball
   homeTeam: text('home_team').notNull(),
   awayTeam: text('away_team').notNull(),
-  status: text('status').notNull(), // live, finished, scheduled
+  status: matchStatusEnum('status').notNull(),
   startTime: timestamp('start_time').notNull(),
+  endTime: timestamp('end_time').notNull(),
   homeScore: integer('home_score').default(0).notNull(),
   awayScore: integer('away_score').default(0).notNull(),
   createdAt: timestamp('created_at').defaultNow().notNull(),

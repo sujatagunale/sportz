@@ -2,6 +2,12 @@ import "dotenv/config";
 import fs from "fs/promises";
 
 const DELAY_MS = Number.parseInt(process.env.DELAY_MS || "250", 10);
+const DEFAULT_MATCH_DURATION_MINUTES = Number.parseInt(
+  process.env.SEED_MATCH_DURATION_MINUTES || "120",
+  10
+);
+const FORCE_LIVE =
+  process.env.SEED_FORCE_LIVE !== "0" && process.env.SEED_FORCE_LIVE !== "false";
 const API_URL = process.env.API_URL;
 if (!API_URL) {
   throw new Error("API_URL is required to seed via REST endpoints.");
@@ -43,7 +49,63 @@ async function fetchMatches(limit = 100) {
   return Array.isArray(payload.data) ? payload.data : [];
 }
 
+function parseDate(value) {
+  if (!value) {
+    return null;
+  }
+  const date = new Date(value);
+  return Number.isNaN(date.getTime()) ? null : date;
+}
+
+function isLiveMatch(match) {
+  const start = parseDate(match.startTime);
+  const end = parseDate(match.endTime);
+  if (!start || !end) {
+    return false;
+  }
+  const now = new Date();
+  return now >= start && now < end;
+}
+
+function buildMatchTimes(seedMatch) {
+  const now = new Date();
+  const durationMs = DEFAULT_MATCH_DURATION_MINUTES * 60 * 1000;
+
+  let start = parseDate(seedMatch.startTime);
+  let end = parseDate(seedMatch.endTime);
+
+  if (!start && !end) {
+    start = new Date(now.getTime() - 5 * 60 * 1000);
+    end = new Date(start.getTime() + durationMs);
+  } else {
+    if (start && !end) {
+      end = new Date(start.getTime() + durationMs);
+    }
+    if (!start && end) {
+      start = new Date(end.getTime() - durationMs);
+    }
+  }
+
+  if (FORCE_LIVE && start && end) {
+    if (!(now >= start && now < end)) {
+      start = new Date(now.getTime() - 5 * 60 * 1000);
+      end = new Date(start.getTime() + durationMs);
+    }
+  }
+
+  if (!start || !end) {
+    throw new Error("Seed match must include valid startTime and endTime.");
+  }
+
+  return {
+    startTime: start.toISOString(),
+    endTime: end.toISOString(),
+  };
+}
+
 async function createMatch(seedMatch) {
+  const { startTime, endTime } = buildMatchTimes(seedMatch);
+
   const response = await fetch(`${API_URL}/matches`, {
     method: "POST",
     headers: { "content-type": "application/json" },
@@ -51,8 +113,8 @@ async function createMatch(seedMatch) {
       sport: seedMatch.sport,
       homeTeam: seedMatch.homeTeam,
       awayTeam: seedMatch.awayTeam,
-      status: seedMatch.status ?? "live",
-      startTime: seedMatch.startTime ?? new Date().toISOString(),
+      startTime,
+      endTime,
       homeScore: seedMatch.homeScore ?? 0,
       awayScore: seedMatch.awayScore ?? 0,
     }),
@@ -145,7 +207,48 @@ function fakeScoreDelta(matchState) {
     : { home: 0, away: points };
 }
 
-function buildRandomizedFeed(feed) {
+function inningsRank(period) {
+  if (!period) {
+    return 0;
+  }
+  const lower = String(period).toLowerCase();
+  const match = lower.match(/(\d+)(st|nd|rd|th)/);
+  if (match) {
+    return Number(match[1]) || 0;
+  }
+  if (lower.includes("first")) {
+    return 1;
+  }
+  if (lower.includes("second")) {
+    return 2;
+  }
+  if (lower.includes("third")) {
+    return 3;
+  }
+  if (lower.includes("fourth")) {
+    return 4;
+  }
+  return 0;
+}
+
+function normalizeCricketFeed(entries) {
+  return [...entries].sort((a, b) => {
+    const inningsDiff = inningsRank(a.period) - inningsRank(b.period);
+    if (inningsDiff !== 0) {
+      return inningsDiff;
+    }
+    const seqA = Number.isFinite(a.sequence) ? a.sequence : Number.MAX_SAFE_INTEGER;
+    const seqB = Number.isFinite(b.sequence) ? b.sequence : Number.MAX_SAFE_INTEGER;
+    if (seqA !== seqB) {
+      return seqA - seqB;
+    }
+    const minA = Number.isFinite(a.minute) ? a.minute : Number.MAX_SAFE_INTEGER;
+    const minB = Number.isFinite(b.minute) ? b.minute : Number.MAX_SAFE_INTEGER;
+    return minA - minB;
+  });
+}
+
+function buildRandomizedFeed(feed, matchMap) {
   const buckets = new Map();
   for (const entry of feed) {
     const key = Number.isInteger(entry.matchId) ? entry.matchId : null;
@@ -153,6 +256,17 @@ function buildRandomizedFeed(feed) {
       buckets.set(key, []);
     }
     buckets.get(key).push(entry);
+  }
+
+  for (const [matchId, entries] of buckets) {
+    if (!Number.isInteger(matchId)) {
+      continue;
+    }
+    const target = matchMap.get(matchId);
+    const sport = target?.match?.sport?.toLowerCase();
+    if (sport === "cricket") {
+      buckets.set(matchId, normalizeCricketFeed(entries));
+    }
   }
 
   const matchIds = Array.from(buckets.keys());
@@ -212,6 +326,9 @@ async function seed() {
   const matchMap = new Map();
   const matchKeyMap = new Map();
   for (const match of matchesList) {
+    if (FORCE_LIVE && !isLiveMatch(match)) {
+      continue;
+    }
     const key = `${match.sport}|${match.homeTeam}|${match.awayTeam}`;
     if (!matchKeyMap.has(key)) {
       matchKeyMap.set(key, match);
@@ -227,7 +344,7 @@ async function seed() {
     for (const seedMatch of seedMatches) {
       const key = `${seedMatch.sport}|${seedMatch.homeTeam}|${seedMatch.awayTeam}`;
       let match = matchKeyMap.get(key);
-      if (!match) {
+      if (!match || (FORCE_LIVE && !isLiveMatch(match))) {
         match = await createMatch(seedMatch);
         matchKeyMap.set(key, match);
       }
@@ -250,7 +367,7 @@ async function seed() {
     throw new Error("No matches found or created in the database.");
   }
 
-  const randomizedFeed = buildRandomizedFeed(feed);
+  const randomizedFeed = buildRandomizedFeed(feed, matchMap);
 
   for (let i = 0; i < randomizedFeed.length; i += 1) {
     const entry = randomizedFeed[i];
