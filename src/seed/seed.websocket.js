@@ -136,6 +136,55 @@ function scoreDeltaFromEntry(entry, match) {
   return null;
 }
 
+function fakeScoreDelta(matchState) {
+  const nextSide = matchState.fakeNext === "home" ? "away" : "home";
+  matchState.fakeNext = nextSide;
+  const points = 1;
+  return nextSide === "home"
+    ? { home: points, away: 0 }
+    : { home: 0, away: points };
+}
+
+function buildRandomizedFeed(feed) {
+  const buckets = new Map();
+  for (const entry of feed) {
+    const key = Number.isInteger(entry.matchId) ? entry.matchId : null;
+    if (!buckets.has(key)) {
+      buckets.set(key, []);
+    }
+    buckets.get(key).push(entry);
+  }
+
+  const matchIds = Array.from(buckets.keys());
+  const randomized = [];
+  let lastMatchId = null;
+
+  while (randomized.length < feed.length) {
+    const candidates = matchIds.filter(
+      (id) => (buckets.get(id) || []).length > 0
+    );
+    if (candidates.length === 0) {
+      break;
+    }
+
+    let selectable = candidates;
+    if (lastMatchId !== null && candidates.length > 1) {
+      const withoutLast = candidates.filter((id) => id !== lastMatchId);
+      if (withoutLast.length > 0) {
+        selectable = withoutLast;
+      }
+    }
+
+    const choice =
+      selectable[Math.floor(Math.random() * selectable.length)];
+    const nextEntry = buckets.get(choice).shift();
+    randomized.push(nextEntry);
+    lastMatchId = choice;
+  }
+
+  return randomized;
+}
+
 function getMatchEntry(entry, matchMap) {
   if (!Number.isInteger(entry.matchId)) {
     return null;
@@ -170,6 +219,7 @@ async function seed() {
     matchMap.set(match.id, {
       match,
       score: { home: match.homeScore ?? 0, away: match.awayScore ?? 0 },
+      fakeNext: Math.random() < 0.5 ? "home" : "away",
     });
   }
 
@@ -185,11 +235,13 @@ async function seed() {
         matchMap.set(seedMatch.id, {
           match,
           score: { home: match.homeScore ?? 0, away: match.awayScore ?? 0 },
+          fakeNext: Math.random() < 0.5 ? "home" : "away",
         });
       }
       matchMap.set(match.id, {
         match,
         score: { home: match.homeScore ?? 0, away: match.awayScore ?? 0 },
+        fakeNext: Math.random() < 0.5 ? "home" : "away",
       });
     }
   }
@@ -198,8 +250,10 @@ async function seed() {
     throw new Error("No matches found or created in the database.");
   }
 
-  for (let i = 0; i < feed.length; i += 1) {
-    const entry = feed[i];
+  const randomizedFeed = buildRandomizedFeed(feed);
+
+  for (let i = 0; i < randomizedFeed.length; i += 1) {
+    const entry = randomizedFeed[i];
     const target = getMatchEntry(entry, matchMap);
     if (!target) {
       console.warn(
@@ -213,7 +267,7 @@ async function seed() {
     const row = await insertCommentary(match.id, entry);
     console.log(`📣 [Match ${match.id}] ${row.message}`);
 
-    const delta = scoreDeltaFromEntry(entry, match);
+    const delta = scoreDeltaFromEntry(entry, match) ?? fakeScoreDelta(target);
     if (delta) {
       target.score.home += delta.home;
       target.score.away += delta.away;
