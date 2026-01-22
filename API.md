@@ -59,11 +59,22 @@ Commentary object:
 Notes:
 
 - `homeScore` and `awayScore` are non-negative integers.
+- `status` values: `scheduled`, `live`, `finished`.
 - `createdAt` timestamps are ISO date strings.
 - `metadata` is arbitrary JSON.
 - `tags` is an optional array of strings.
 
 ## REST API
+
+### Root
+
+`GET /`
+
+Response:
+
+```text
+Sports Commentary API
+```
 
 ### List Matches
 
@@ -82,6 +93,7 @@ Response:
 Notes:
 
 - Ordered by `createdAt` descending (newest first).
+- Match `status` is synced against `startTime`/`endTime` during this request.
 
 ### Create Match
 
@@ -167,6 +179,11 @@ Validation:
 - `message` is required and must be a non-empty string.
 - All other fields are optional.
 
+Errors:
+
+- `404` if match is not found.
+- `409` if match status is not `live`.
+
 Side effect:
 
 - If a WebSocket client is subscribed to the match, it receives a `commentary` event.
@@ -194,6 +211,11 @@ Validation:
 
 - `homeScore` and `awayScore` are required non-negative integers.
 
+Errors:
+
+- `404` if match is not found.
+- `409` if match status is not `live`.
+
 Side effect:
 
 - If a WebSocket client is subscribed to the match, it receives a `score_update` event.
@@ -208,11 +230,21 @@ Auto-subscribe on connect:
 
 `ws://localhost:3000/ws?matchId=123`
 
+Auto-subscribe to the global live stream (all matches):
+
+`ws://localhost:3000/ws?all=1`
+
 Upon connection, server sends:
 
 ```json
 { "type": "welcome" }
 ```
+
+Notes:
+
+- Max incoming payload size: 1 MB.
+- Server closes the socket with code `1013` if the send buffer exceeds 1,000,000 bytes (backpressure).
+- Server sends periodic ping frames; clients should respond with pong frames (handled automatically by most WS clients).
 
 ### Client → Server Messages
 
@@ -222,10 +254,22 @@ Subscribe to a match:
 { "type": "subscribe", "matchId": 123 }
 ```
 
+Subscribe to the global live stream:
+
+```json
+{ "type": "subscribeAll" }
+```
+
 Unsubscribe from a match:
 
 ```json
 { "type": "unsubscribe", "matchId": 123 }
+```
+
+Unsubscribe from the global live stream:
+
+```json
+{ "type": "unsubscribeAll" }
 ```
 
 Set full subscription list:
@@ -254,6 +298,14 @@ Acknowledgements:
 
 ```json
 { "type": "unsubscribed", "matchId": 123 }
+```
+
+```json
+{ "type": "subscribed_all" }
+```
+
+```json
+{ "type": "unsubscribed_all" }
 ```
 
 ```json
@@ -296,19 +348,9 @@ Possible error codes:
 
 - `invalid_json`
 - `invalid_message`
-- `rate_limited`
 - `too_many_subscriptions`
 - `match_lookup_failed`
 - `match_not_found`
-
-### Rate Limiting
-
-WebSocket messages are rate-limited per socket:
-
-- Capacity: 20 tokens
-- Refill: 10 tokens/sec
-
-Exceeding limits returns an `error` with `code: "rate_limited"`.
 
 ## Common Integration Flow
 

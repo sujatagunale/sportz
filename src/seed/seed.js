@@ -231,14 +231,52 @@ function inningsRank(period) {
   return 0;
 }
 
-function normalizeCricketFeed(entries) {
-  return [...entries].sort((a, b) => {
+function cricketBattingTeam(entry, match) {
+  const rank = inningsRank(entry.period);
+  if (rank === 1) {
+    return match.homeTeam;
+  }
+  if (rank === 2) {
+    return match.awayTeam;
+  }
+  return null;
+}
+
+function cricketScoreDelta(entry, match) {
+  const battingTeam = cricketBattingTeam(entry, match);
+  let delta = scoreDeltaFromEntry(entry, match);
+  if (!delta) {
+    if (!battingTeam) {
+      return null;
+    }
+    const points = 1;
+    return battingTeam === match.homeTeam
+      ? { home: points, away: 0 }
+      : { home: 0, away: points };
+  }
+
+  if (!battingTeam) {
+    return delta;
+  }
+
+  if (battingTeam === match.homeTeam) {
+    return { home: delta.home, away: 0 };
+  }
+  return { home: 0, away: delta.away };
+}
+
+function normalizeCricketFeed(entries, match) {
+  const sorted = [...entries].sort((a, b) => {
     const inningsDiff = inningsRank(a.period) - inningsRank(b.period);
     if (inningsDiff !== 0) {
       return inningsDiff;
     }
-    const seqA = Number.isFinite(a.sequence) ? a.sequence : Number.MAX_SAFE_INTEGER;
-    const seqB = Number.isFinite(b.sequence) ? b.sequence : Number.MAX_SAFE_INTEGER;
+    const seqA = Number.isFinite(a.sequence)
+      ? a.sequence
+      : Number.MAX_SAFE_INTEGER;
+    const seqB = Number.isFinite(b.sequence)
+      ? b.sequence
+      : Number.MAX_SAFE_INTEGER;
     if (seqA !== seqB) {
       return seqA - seqB;
     }
@@ -246,6 +284,46 @@ function normalizeCricketFeed(entries) {
     const minB = Number.isFinite(b.minute) ? b.minute : Number.MAX_SAFE_INTEGER;
     return minA - minB;
   });
+
+  const grouped = new Map();
+  for (const entry of sorted) {
+    const key = inningsRank(entry.period);
+    if (!grouped.has(key)) {
+      grouped.set(key, []);
+    }
+    grouped.get(key).push(entry);
+  }
+
+  const ordered = [];
+  const inningsKeys = Array.from(grouped.keys()).sort((a, b) => a - b);
+
+  for (const key of inningsKeys) {
+    const inningsEntries = grouped.get(key) || [];
+    const primaryTeam = inningsEntries.find(
+      (entry) => entry.team === match.homeTeam || entry.team === match.awayTeam
+    )?.team;
+    const secondaryTeam =
+      primaryTeam === match.homeTeam ? match.awayTeam : match.homeTeam;
+
+    const neutral = inningsEntries.filter(
+      (entry) => !entry.team || entry.team === "neutral"
+    );
+    const primary = inningsEntries.filter((entry) => entry.team === primaryTeam);
+    const secondary = inningsEntries.filter(
+      (entry) => entry.team === secondaryTeam
+    );
+    const other = inningsEntries.filter(
+      (entry) =>
+        entry.team &&
+        entry.team !== "neutral" &&
+        entry.team !== primaryTeam &&
+        entry.team !== secondaryTeam
+    );
+
+    ordered.push(...neutral, ...primary, ...secondary, ...other);
+  }
+
+  return ordered;
 }
 
 function buildRandomizedFeed(feed, matchMap) {
@@ -264,8 +342,8 @@ function buildRandomizedFeed(feed, matchMap) {
     }
     const target = matchMap.get(matchId);
     const sport = target?.match?.sport?.toLowerCase();
-    if (sport === "cricket") {
-      buckets.set(matchId, normalizeCricketFeed(entries));
+    if (sport === "cricket" && target?.match) {
+      buckets.set(matchId, normalizeCricketFeed(entries, target.match));
     }
   }
 
@@ -367,6 +445,18 @@ async function seed() {
     throw new Error("No matches found or created in the database.");
   }
 
+  const resetIds = new Set();
+  for (const entry of matchMap.values()) {
+    const matchId = entry.match?.id;
+    if (!Number.isInteger(matchId) || resetIds.has(matchId)) {
+      continue;
+    }
+    resetIds.add(matchId);
+    entry.score.home = 0;
+    entry.score.away = 0;
+    await updateMatchScore(matchId, 0, 0);
+  }
+
   const randomizedFeed = buildRandomizedFeed(feed, matchMap);
 
   for (let i = 0; i < randomizedFeed.length; i += 1) {
@@ -384,7 +474,10 @@ async function seed() {
     const row = await insertCommentary(match.id, entry);
     console.log(`📣 [Match ${match.id}] ${row.message}`);
 
-    const delta = scoreDeltaFromEntry(entry, match) ?? fakeScoreDelta(target);
+    const isCricket = String(match.sport).toLowerCase() === "cricket";
+    const delta = isCricket
+      ? cricketScoreDelta(entry, match, target)
+      : scoreDeltaFromEntry(entry, match) ?? fakeScoreDelta(target);
     if (delta) {
       target.score.home += delta.home;
       target.score.away += delta.away;

@@ -10,6 +10,7 @@ const MAX_MATCH_CACHE = 10_000;
 const MATCH_CACHE_TTL_MS = 10_000;
 
 const matchSubscribers = new Map();
+const globalSubscribers = new Set();
 const matchExistsCache = new Map();
 
 function sendJson(socket, payload) {
@@ -55,6 +56,7 @@ function cleanupSubscriptions(socket) {
   for (const id of socket.subscriptions) {
     unsubscribe(id, socket);
   }
+  globalSubscribers.delete(socket);
 }
 
 function pruneMatchCache(now) {
@@ -126,6 +128,16 @@ function handleUnsubscribe(socket, matchId) {
   sendJson(socket, { type: "unsubscribed", matchId });
 }
 
+function handleSubscribeAll(socket) {
+  globalSubscribers.add(socket);
+  sendJson(socket, { type: "subscribed_all" });
+}
+
+function handleUnsubscribeAll(socket) {
+  globalSubscribers.delete(socket);
+  sendJson(socket, { type: "unsubscribed_all" });
+}
+
 async function handleSetSubscriptions(socket, matchIds) {
   const deduped = Array.from(new Set(matchIds));
   if (deduped.length > MAX_SUBSCRIPTIONS) {
@@ -173,12 +185,21 @@ async function handleSetSubscriptions(socket, matchIds) {
 
 function broadcastToMatch(matchId, payload) {
   const subscribers = matchSubscribers.get(matchId);
-  if (!subscribers || subscribers.size === 0) {
+  const targets = new Set();
+  if (subscribers) {
+    for (const client of subscribers) {
+      targets.add(client);
+    }
+  }
+  for (const client of globalSubscribers) {
+    targets.add(client);
+  }
+  if (targets.size === 0) {
     return;
   }
 
   const message = JSON.stringify(payload);
-  for (const client of subscribers) {
+  for (const client of targets) {
     if (client.readyState !== WebSocket.OPEN) {
       continue;
     }
@@ -194,6 +215,12 @@ function getMatchIdFromRequest(req) {
   const url = new URL(req.url, `http://${req.headers.host}`);
   const matchId = Number(url.searchParams.get("matchId"));
   return Number.isInteger(matchId) && matchId > 0 ? matchId : null;
+}
+
+function wantsGlobalStream(req) {
+  const url = new URL(req.url, `http://${req.headers.host}`);
+  const raw = url.searchParams.get("all");
+  return raw === "1" || raw === "true";
 }
 
 function handleMessage(socket, data) {
@@ -217,8 +244,14 @@ function handleMessage(socket, data) {
     case "subscribe":
       void handleSubscribe(socket, parsed.data.matchId);
       break;
+    case "subscribeAll":
+      handleSubscribeAll(socket);
+      break;
     case "unsubscribe":
       handleUnsubscribe(socket, parsed.data.matchId);
+      break;
+    case "unsubscribeAll":
+      handleUnsubscribeAll(socket);
       break;
     case "setSubscriptions":
       void handleSetSubscriptions(socket, parsed.data.matchIds);
@@ -242,6 +275,9 @@ function handleConnection(socket, req) {
   const matchId = getMatchIdFromRequest(req);
   if (matchId) {
     void handleSubscribe(socket, matchId);
+  }
+  if (wantsGlobalStream(req)) {
+    handleSubscribeAll(socket);
   }
 
   sendJson(socket, { type: "welcome" });

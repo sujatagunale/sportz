@@ -6,7 +6,9 @@
       "homeTeam": "Arsenal FC",
       "awayTeam": "Liverpool FC",
       "startTime": "2025-02-01T12:00:00.000Z",
-      "endTime": "2025-02-01T13:45:00.000Z"
+      "endTime": "2025-02-01T13:45:00.000Z",
+      "homeScore": 0,
+      "awayScore": 0
     },
     {
       "id": 2,
@@ -14,7 +16,9 @@
       "homeTeam": "Real Madrid",
       "awayTeam": "Barcelona",
       "startTime": "2025-02-01T14:00:00.000Z",
-      "endTime": "2025-02-01T15:45:00.000Z"
+      "endTime": "2025-02-01T15:45:00.000Z",
+      "homeScore": 0,
+      "awayScore": 0
     },
     {
       "id": 3,
@@ -22,7 +26,9 @@
       "homeTeam": "India",
       "awayTeam": "Australia",
       "startTime": "2025-02-02T04:00:00.000Z",
-      "endTime": "2025-02-02T12:00:00.000Z"
+      "endTime": "2025-02-02T12:00:00.000Z",
+      "homeScore": 0,
+      "awayScore": 0
     },
     {
       "id": 4,
@@ -30,7 +36,9 @@
       "homeTeam": "England",
       "awayTeam": "Pakistan",
       "startTime": "2025-02-03T05:00:00.000Z",
-      "endTime": "2025-02-03T13:00:00.000Z"
+      "endTime": "2025-02-03T13:00:00.000Z",
+      "homeScore": 0,
+      "awayScore": 0
     },
     {
       "id": 5,
@@ -38,7 +46,9 @@
       "homeTeam": "LA Lakers",
       "awayTeam": "Boston Celtics",
       "startTime": "2025-02-01T18:00:00.000Z",
-      "endTime": "2025-02-01T20:15:00.000Z"
+      "endTime": "2025-02-01T20:15:00.000Z",
+      "homeScore": 0,
+      "awayScore": 0
     }
   ],
   "commentary": [
@@ -7077,9 +7087,9 @@
       "sequence": 522,
       "period": "1st innings",
       "eventType": "run",
-      "team": "Australia",
+      "team": "India",
       "actor": "Virat Kohli",
-      "message": "Quick single taken into the gap. (Australia)",
+      "message": "Quick single taken into the gap. (India)",
       "tags": [
         "run"
       ],
@@ -7111,9 +7121,9 @@
       "sequence": 524,
       "period": "1st innings",
       "eventType": "six",
-      "team": "Australia",
+      "team": "India",
       "actor": "Mitchell Starc",
-      "message": "Smashed straight down the ground for six. (Australia)",
+      "message": "Smashed straight down the ground for six. (India)",
       "tags": [
         "six"
       ],
@@ -7141,9 +7151,9 @@
       "sequence": 526,
       "period": "1st innings",
       "eventType": "over_end",
-      "team": "Australia",
+      "team": "India",
       "actor": "Ben Stokes",
-      "message": "End of the over with tidy bowling. (Australia)",
+      "message": "End of the over with tidy bowling. (India)",
       "tags": [
         "over"
       ]
@@ -7167,9 +7177,9 @@
       "sequence": 528,
       "period": "1st innings",
       "eventType": "run",
-      "team": "Australia",
+      "team": "India",
       "actor": "Shaheen Afridi",
-      "message": "Quick single taken into the gap. (Australia)",
+      "message": "Quick single taken into the gap. (India)",
       "tags": [
         "run"
       ],
@@ -7201,9 +7211,9 @@
       "sequence": 530,
       "period": "1st innings",
       "eventType": "six",
-      "team": "Australia",
+      "team": "India",
       "actor": "Virat Kohli",
-      "message": "Smashed straight down the ground for six. (Australia)",
+      "message": "Smashed straight down the ground for six. (India)",
       "tags": [
         "six"
       ],
@@ -7231,9 +7241,9 @@
       "sequence": 532,
       "period": "1st innings",
       "eventType": "over_end",
-      "team": "Australia",
+      "team": "India",
       "actor": "Mitchell Starc",
-      "message": "End of the over with tidy bowling. (Australia)",
+      "message": "End of the over with tidy bowling. (India)",
       "tags": [
         "over"
       ]
@@ -7257,9 +7267,9 @@
       "sequence": 534,
       "period": "1st innings",
       "eventType": "run",
-      "team": "Australia",
+      "team": "India",
       "actor": "Ben Stokes",
-      "message": "Quick single taken into the gap. (Australia)",
+      "message": "Quick single taken into the gap. (India)",
       "tags": [
         "run"
       ],
@@ -7291,9 +7301,9 @@
       "sequence": 536,
       "period": "1st innings",
       "eventType": "six",
-      "team": "Australia",
+      "team": "India",
       "actor": "Shaheen Afridi",
-      "message": "Smashed straight down the ground for six. (Australia)",
+      "message": "Smashed straight down the ground for six. (India)",
       "tags": [
         "six"
       ],
@@ -7321,9 +7331,9 @@
       "sequence": 538,
       "period": "1st innings",
       "eventType": "over_end",
-      "team": "Australia",
+      "team": "India",
       "actor": "Virat Kohli",
-      "message": "End of the over with tidy bowling. (Australia)",
+      "message": "End of the over with tidy bowling. (India)",
       "tags": [
         "over"
       ]
@@ -7347,9 +7357,9 @@
       "sequence": 540,
       "period": "1st innings",
       "eventType": "run",
-      "team": "Australia",
+      "team": "India",
       "actor": "Mitchell Starc",
-      "message": "Quick single taken into the gap. (Australia)",
+      "message": "Quick single taken into the gap. (India)",
       "tags": [
         "run"
       ],
@@ -7381,9 +7391,9 @@
       "sequence": 542,
       "period": "1st innings",
       "eventType": "six",
-      "team": "Australia",
+      "team": "India",
       "actor": "Ben Stokes",
-      "message": "Smashed straight down the ground for six. (Australia)",
+      "message": "Smashed straight down the ground for six. (India)",
       "tags": [
         "six"
       ],
@@ -7411,9 +7421,9 @@
       "sequence": 544,
       "period": "1st innings",
       "eventType": "over_end",
-      "team": "Australia",
+      "team": "India",
       "actor": "Shaheen Afridi",
-      "message": "End of the over with tidy bowling. (Australia)",
+      "message": "End of the over with tidy bowling. (India)",
       "tags": [
         "over"
       ]
@@ -7437,9 +7447,9 @@
       "sequence": 546,
       "period": "1st innings",
       "eventType": "run",
-      "team": "Australia",
+      "team": "India",
       "actor": "Virat Kohli",
-      "message": "Quick single taken into the gap. (Australia)",
+      "message": "Quick single taken into the gap. (India)",
       "tags": [
         "run"
       ],
@@ -7471,9 +7481,9 @@
       "sequence": 548,
       "period": "1st innings",
       "eventType": "six",
-      "team": "Australia",
+      "team": "India",
       "actor": "Mitchell Starc",
-      "message": "Smashed straight down the ground for six. (Australia)",
+      "message": "Smashed straight down the ground for six. (India)",
       "tags": [
         "six"
       ],
@@ -7501,9 +7511,9 @@
       "sequence": 550,
       "period": "1st innings",
       "eventType": "over_end",
-      "team": "Australia",
+      "team": "India",
       "actor": "Ben Stokes",
-      "message": "End of the over with tidy bowling. (Australia)",
+      "message": "End of the over with tidy bowling. (India)",
       "tags": [
         "over"
       ]
@@ -7527,9 +7537,9 @@
       "sequence": 552,
       "period": "1st innings",
       "eventType": "run",
-      "team": "Australia",
+      "team": "India",
       "actor": "Shaheen Afridi",
-      "message": "Quick single taken into the gap. (Australia)",
+      "message": "Quick single taken into the gap. (India)",
       "tags": [
         "run"
       ],
@@ -7561,9 +7571,9 @@
       "sequence": 554,
       "period": "1st innings",
       "eventType": "six",
-      "team": "Australia",
+      "team": "India",
       "actor": "Virat Kohli",
-      "message": "Smashed straight down the ground for six. (Australia)",
+      "message": "Smashed straight down the ground for six. (India)",
       "tags": [
         "six"
       ],
@@ -7591,9 +7601,9 @@
       "sequence": 556,
       "period": "1st innings",
       "eventType": "over_end",
-      "team": "Australia",
+      "team": "India",
       "actor": "Mitchell Starc",
-      "message": "End of the over with tidy bowling. (Australia)",
+      "message": "End of the over with tidy bowling. (India)",
       "tags": [
         "over"
       ]
@@ -7617,9 +7627,9 @@
       "sequence": 558,
       "period": "1st innings",
       "eventType": "run",
-      "team": "Australia",
+      "team": "India",
       "actor": "Ben Stokes",
-      "message": "Quick single taken into the gap. (Australia)",
+      "message": "Quick single taken into the gap. (India)",
       "tags": [
         "run"
       ],
@@ -7651,9 +7661,9 @@
       "sequence": 560,
       "period": "1st innings",
       "eventType": "six",
-      "team": "Australia",
+      "team": "India",
       "actor": "Shaheen Afridi",
-      "message": "Smashed straight down the ground for six. (Australia)",
+      "message": "Smashed straight down the ground for six. (India)",
       "tags": [
         "six"
       ],
@@ -7681,9 +7691,9 @@
       "sequence": 562,
       "period": "1st innings",
       "eventType": "over_end",
-      "team": "Australia",
+      "team": "India",
       "actor": "Virat Kohli",
-      "message": "End of the over with tidy bowling. (Australia)",
+      "message": "End of the over with tidy bowling. (India)",
       "tags": [
         "over"
       ]
@@ -7707,9 +7717,9 @@
       "sequence": 564,
       "period": "1st innings",
       "eventType": "run",
-      "team": "Australia",
+      "team": "India",
       "actor": "Mitchell Starc",
-      "message": "Quick single taken into the gap. (Australia)",
+      "message": "Quick single taken into the gap. (India)",
       "tags": [
         "run"
       ],
@@ -7741,9 +7751,9 @@
       "sequence": 566,
       "period": "1st innings",
       "eventType": "six",
-      "team": "Australia",
+      "team": "India",
       "actor": "Ben Stokes",
-      "message": "Smashed straight down the ground for six. (Australia)",
+      "message": "Smashed straight down the ground for six. (India)",
       "tags": [
         "six"
       ],
@@ -7771,9 +7781,9 @@
       "sequence": 568,
       "period": "1st innings",
       "eventType": "over_end",
-      "team": "Australia",
+      "team": "India",
       "actor": "Shaheen Afridi",
-      "message": "End of the over with tidy bowling. (Australia)",
+      "message": "End of the over with tidy bowling. (India)",
       "tags": [
         "over"
       ]
@@ -7797,9 +7807,9 @@
       "sequence": 570,
       "period": "1st innings",
       "eventType": "run",
-      "team": "Australia",
+      "team": "India",
       "actor": "Virat Kohli",
-      "message": "Quick single taken into the gap. (Australia)",
+      "message": "Quick single taken into the gap. (India)",
       "tags": [
         "run"
       ],
@@ -7831,9 +7841,9 @@
       "sequence": 572,
       "period": "1st innings",
       "eventType": "six",
-      "team": "Australia",
+      "team": "India",
       "actor": "Mitchell Starc",
-      "message": "Smashed straight down the ground for six. (Australia)",
+      "message": "Smashed straight down the ground for six. (India)",
       "tags": [
         "six"
       ],
@@ -7861,9 +7871,9 @@
       "sequence": 574,
       "period": "1st innings",
       "eventType": "over_end",
-      "team": "Australia",
+      "team": "India",
       "actor": "Ben Stokes",
-      "message": "End of the over with tidy bowling. (Australia)",
+      "message": "End of the over with tidy bowling. (India)",
       "tags": [
         "over"
       ]
@@ -7887,9 +7897,9 @@
       "sequence": 576,
       "period": "1st innings",
       "eventType": "run",
-      "team": "Australia",
+      "team": "India",
       "actor": "Shaheen Afridi",
-      "message": "Quick single taken into the gap. (Australia)",
+      "message": "Quick single taken into the gap. (India)",
       "tags": [
         "run"
       ],
@@ -7921,9 +7931,9 @@
       "sequence": 578,
       "period": "1st innings",
       "eventType": "six",
-      "team": "Australia",
+      "team": "India",
       "actor": "Virat Kohli",
-      "message": "Smashed straight down the ground for six. (Australia)",
+      "message": "Smashed straight down the ground for six. (India)",
       "tags": [
         "six"
       ],
@@ -7951,9 +7961,9 @@
       "sequence": 580,
       "period": "1st innings",
       "eventType": "over_end",
-      "team": "Australia",
+      "team": "India",
       "actor": "Mitchell Starc",
-      "message": "End of the over with tidy bowling. (Australia)",
+      "message": "End of the over with tidy bowling. (India)",
       "tags": [
         "over"
       ]
@@ -7964,9 +7974,9 @@
       "sequence": 581,
       "period": "2nd innings",
       "eventType": "start",
-      "team": "India",
+      "team": "Australia",
       "actor": "Pat Cummins",
-      "message": "The innings begins with the openers walking out. (India)",
+      "message": "The innings begins with the openers walking out. (Australia)",
       "tags": [
         "start"
       ]
@@ -7994,9 +8004,9 @@
       "sequence": 583,
       "period": "2nd innings",
       "eventType": "four",
-      "team": "India",
+      "team": "Australia",
       "actor": "Babar Azam",
-      "message": "Cracking cover drive for four. (India)",
+      "message": "Cracking cover drive for four. (Australia)",
       "tags": [
         "boundary"
       ],
@@ -8028,9 +8038,9 @@
       "sequence": 585,
       "period": "2nd innings",
       "eventType": "wicket",
-      "team": "India",
+      "team": "Australia",
       "actor": "Rohit Sharma",
-      "message": "Wicket! A sharp catch at slip. (India)",
+      "message": "Wicket! A sharp catch at slip. (Australia)",
       "tags": [
         "wicket"
       ]
@@ -8054,9 +8064,9 @@
       "sequence": 587,
       "period": "2nd innings",
       "eventType": "start",
-      "team": "India",
+      "team": "Australia",
       "actor": "Shubman Gill",
-      "message": "The innings begins with the openers walking out. (India)",
+      "message": "The innings begins with the openers walking out. (Australia)",
       "tags": [
         "start"
       ]
@@ -8084,9 +8094,9 @@
       "sequence": 589,
       "period": "2nd innings",
       "eventType": "four",
-      "team": "India",
+      "team": "Australia",
       "actor": "Pat Cummins",
-      "message": "Cracking cover drive for four. (India)",
+      "message": "Cracking cover drive for four. (Australia)",
       "tags": [
         "boundary"
       ],
@@ -8118,9 +8128,9 @@
       "sequence": 591,
       "period": "2nd innings",
       "eventType": "wicket",
-      "team": "India",
+      "team": "Australia",
       "actor": "Babar Azam",
-      "message": "Wicket! A sharp catch at slip. (India)",
+      "message": "Wicket! A sharp catch at slip. (Australia)",
       "tags": [
         "wicket"
       ]
@@ -8144,9 +8154,9 @@
       "sequence": 593,
       "period": "2nd innings",
       "eventType": "start",
-      "team": "India",
+      "team": "Australia",
       "actor": "Rohit Sharma",
-      "message": "The innings begins with the openers walking out. (India)",
+      "message": "The innings begins with the openers walking out. (Australia)",
       "tags": [
         "start"
       ]
@@ -8174,9 +8184,9 @@
       "sequence": 595,
       "period": "2nd innings",
       "eventType": "four",
-      "team": "India",
+      "team": "Australia",
       "actor": "Shubman Gill",
-      "message": "Cracking cover drive for four. (India)",
+      "message": "Cracking cover drive for four. (Australia)",
       "tags": [
         "boundary"
       ],
@@ -8208,9 +8218,9 @@
       "sequence": 597,
       "period": "2nd innings",
       "eventType": "wicket",
-      "team": "India",
+      "team": "Australia",
       "actor": "Pat Cummins",
-      "message": "Wicket! A sharp catch at slip. (India)",
+      "message": "Wicket! A sharp catch at slip. (Australia)",
       "tags": [
         "wicket"
       ]
@@ -8234,9 +8244,9 @@
       "sequence": 599,
       "period": "2nd innings",
       "eventType": "start",
-      "team": "India",
+      "team": "Australia",
       "actor": "Babar Azam",
-      "message": "The innings begins with the openers walking out. (India)",
+      "message": "The innings begins with the openers walking out. (Australia)",
       "tags": [
         "start"
       ]
@@ -8264,9 +8274,9 @@
       "sequence": 601,
       "period": "2nd innings",
       "eventType": "four",
-      "team": "India",
+      "team": "Australia",
       "actor": "Rohit Sharma",
-      "message": "Cracking cover drive for four. (India)",
+      "message": "Cracking cover drive for four. (Australia)",
       "tags": [
         "boundary"
       ],
@@ -8298,9 +8308,9 @@
       "sequence": 603,
       "period": "2nd innings",
       "eventType": "wicket",
-      "team": "India",
+      "team": "Australia",
       "actor": "Shubman Gill",
-      "message": "Wicket! A sharp catch at slip. (India)",
+      "message": "Wicket! A sharp catch at slip. (Australia)",
       "tags": [
         "wicket"
       ]
@@ -8324,9 +8334,9 @@
       "sequence": 605,
       "period": "2nd innings",
       "eventType": "start",
-      "team": "India",
+      "team": "Australia",
       "actor": "Pat Cummins",
-      "message": "The innings begins with the openers walking out. (India)",
+      "message": "The innings begins with the openers walking out. (Australia)",
       "tags": [
         "start"
       ]
@@ -8354,9 +8364,9 @@
       "sequence": 607,
       "period": "2nd innings",
       "eventType": "four",
-      "team": "India",
+      "team": "Australia",
       "actor": "Babar Azam",
-      "message": "Cracking cover drive for four. (India)",
+      "message": "Cracking cover drive for four. (Australia)",
       "tags": [
         "boundary"
       ],
@@ -8388,9 +8398,9 @@
       "sequence": 609,
       "period": "2nd innings",
       "eventType": "wicket",
-      "team": "India",
+      "team": "Australia",
       "actor": "Rohit Sharma",
-      "message": "Wicket! A sharp catch at slip. (India)",
+      "message": "Wicket! A sharp catch at slip. (Australia)",
       "tags": [
         "wicket"
       ]
@@ -8414,9 +8424,9 @@
       "sequence": 611,
       "period": "2nd innings",
       "eventType": "start",
-      "team": "India",
+      "team": "Australia",
       "actor": "Shubman Gill",
-      "message": "The innings begins with the openers walking out. (India)",
+      "message": "The innings begins with the openers walking out. (Australia)",
       "tags": [
         "start"
       ]
@@ -8444,9 +8454,9 @@
       "sequence": 613,
       "period": "2nd innings",
       "eventType": "four",
-      "team": "India",
+      "team": "Australia",
       "actor": "Pat Cummins",
-      "message": "Cracking cover drive for four. (India)",
+      "message": "Cracking cover drive for four. (Australia)",
       "tags": [
         "boundary"
       ],
@@ -8478,9 +8488,9 @@
       "sequence": 615,
       "period": "2nd innings",
       "eventType": "wicket",
-      "team": "India",
+      "team": "Australia",
       "actor": "Babar Azam",
-      "message": "Wicket! A sharp catch at slip. (India)",
+      "message": "Wicket! A sharp catch at slip. (Australia)",
       "tags": [
         "wicket"
       ]
@@ -8504,9 +8514,9 @@
       "sequence": 617,
       "period": "2nd innings",
       "eventType": "start",
-      "team": "India",
+      "team": "Australia",
       "actor": "Rohit Sharma",
-      "message": "The innings begins with the openers walking out. (India)",
+      "message": "The innings begins with the openers walking out. (Australia)",
       "tags": [
         "start"
       ]
@@ -8534,9 +8544,9 @@
       "sequence": 619,
       "period": "2nd innings",
       "eventType": "four",
-      "team": "India",
+      "team": "Australia",
       "actor": "Shubman Gill",
-      "message": "Cracking cover drive for four. (India)",
+      "message": "Cracking cover drive for four. (Australia)",
       "tags": [
         "boundary"
       ],
@@ -8568,9 +8578,9 @@
       "sequence": 621,
       "period": "2nd innings",
       "eventType": "wicket",
-      "team": "India",
+      "team": "Australia",
       "actor": "Pat Cummins",
-      "message": "Wicket! A sharp catch at slip. (India)",
+      "message": "Wicket! A sharp catch at slip. (Australia)",
       "tags": [
         "wicket"
       ]
@@ -8594,9 +8604,9 @@
       "sequence": 623,
       "period": "2nd innings",
       "eventType": "start",
-      "team": "India",
+      "team": "Australia",
       "actor": "Babar Azam",
-      "message": "The innings begins with the openers walking out. (India)",
+      "message": "The innings begins with the openers walking out. (Australia)",
       "tags": [
         "start"
       ]
@@ -8624,9 +8634,9 @@
       "sequence": 625,
       "period": "2nd innings",
       "eventType": "four",
-      "team": "India",
+      "team": "Australia",
       "actor": "Rohit Sharma",
-      "message": "Cracking cover drive for four. (India)",
+      "message": "Cracking cover drive for four. (Australia)",
       "tags": [
         "boundary"
       ],
@@ -8658,9 +8668,9 @@
       "sequence": 627,
       "period": "2nd innings",
       "eventType": "wicket",
-      "team": "India",
+      "team": "Australia",
       "actor": "Shubman Gill",
-      "message": "Wicket! A sharp catch at slip. (India)",
+      "message": "Wicket! A sharp catch at slip. (Australia)",
       "tags": [
         "wicket"
       ]
@@ -8684,9 +8694,9 @@
       "sequence": 629,
       "period": "2nd innings",
       "eventType": "start",
-      "team": "India",
+      "team": "Australia",
       "actor": "Pat Cummins",
-      "message": "The innings begins with the openers walking out. (India)",
+      "message": "The innings begins with the openers walking out. (Australia)",
       "tags": [
         "start"
       ]
@@ -8714,9 +8724,9 @@
       "sequence": 631,
       "period": "2nd innings",
       "eventType": "four",
-      "team": "India",
+      "team": "Australia",
       "actor": "Babar Azam",
-      "message": "Cracking cover drive for four. (India)",
+      "message": "Cracking cover drive for four. (Australia)",
       "tags": [
         "boundary"
       ],
@@ -8748,9 +8758,9 @@
       "sequence": 633,
       "period": "2nd innings",
       "eventType": "wicket",
-      "team": "India",
+      "team": "Australia",
       "actor": "Rohit Sharma",
-      "message": "Wicket! A sharp catch at slip. (India)",
+      "message": "Wicket! A sharp catch at slip. (Australia)",
       "tags": [
         "wicket"
       ]
@@ -8774,9 +8784,9 @@
       "sequence": 635,
       "period": "2nd innings",
       "eventType": "start",
-      "team": "India",
+      "team": "Australia",
       "actor": "Shubman Gill",
-      "message": "The innings begins with the openers walking out. (India)",
+      "message": "The innings begins with the openers walking out. (Australia)",
       "tags": [
         "start"
       ]
@@ -8804,9 +8814,9 @@
       "sequence": 637,
       "period": "2nd innings",
       "eventType": "four",
-      "team": "India",
+      "team": "Australia",
       "actor": "Pat Cummins",
-      "message": "Cracking cover drive for four. (India)",
+      "message": "Cracking cover drive for four. (Australia)",
       "tags": [
         "boundary"
       ],
@@ -8838,9 +8848,9 @@
       "sequence": 639,
       "period": "2nd innings",
       "eventType": "wicket",
-      "team": "India",
+      "team": "Australia",
       "actor": "Babar Azam",
-      "message": "Wicket! A sharp catch at slip. (India)",
+      "message": "Wicket! A sharp catch at slip. (Australia)",
       "tags": [
         "wicket"
       ]
@@ -8877,9 +8887,9 @@
       "sequence": 642,
       "period": "1st innings",
       "eventType": "run",
-      "team": "Australia",
+      "team": "India",
       "actor": "Virat Kohli",
-      "message": "Quick single taken into the gap. (Australia)",
+      "message": "Quick single taken into the gap. (India)",
       "tags": [
         "run"
       ],
@@ -8911,9 +8921,9 @@
       "sequence": 644,
       "period": "1st innings",
       "eventType": "six",
-      "team": "Australia",
+      "team": "India",
       "actor": "Mitchell Starc",
-      "message": "Smashed straight down the ground for six. (Australia)",
+      "message": "Smashed straight down the ground for six. (India)",
       "tags": [
         "six"
       ],
@@ -8941,9 +8951,9 @@
       "sequence": 646,
       "period": "1st innings",
       "eventType": "over_end",
-      "team": "Australia",
+      "team": "India",
       "actor": "Ben Stokes",
-      "message": "End of the over with tidy bowling. (Australia)",
+      "message": "End of the over with tidy bowling. (India)",
       "tags": [
         "over"
       ]
@@ -8967,9 +8977,9 @@
       "sequence": 648,
       "period": "1st innings",
       "eventType": "run",
-      "team": "Australia",
+      "team": "India",
       "actor": "Shaheen Afridi",
-      "message": "Quick single taken into the gap. (Australia)",
+      "message": "Quick single taken into the gap. (India)",
       "tags": [
         "run"
       ],
@@ -9001,9 +9011,9 @@
       "sequence": 650,
       "period": "1st innings",
       "eventType": "six",
-      "team": "Australia",
+      "team": "India",
       "actor": "Virat Kohli",
-      "message": "Smashed straight down the ground for six. (Australia)",
+      "message": "Smashed straight down the ground for six. (India)",
       "tags": [
         "six"
       ],
@@ -9031,9 +9041,9 @@
       "sequence": 652,
       "period": "1st innings",
       "eventType": "over_end",
-      "team": "Australia",
+      "team": "India",
       "actor": "Mitchell Starc",
-      "message": "End of the over with tidy bowling. (Australia)",
+      "message": "End of the over with tidy bowling. (India)",
       "tags": [
         "over"
       ]
@@ -9057,9 +9067,9 @@
       "sequence": 654,
       "period": "1st innings",
       "eventType": "run",
-      "team": "Australia",
+      "team": "India",
       "actor": "Ben Stokes",
-      "message": "Quick single taken into the gap. (Australia)",
+      "message": "Quick single taken into the gap. (India)",
       "tags": [
         "run"
       ],
@@ -9091,9 +9101,9 @@
       "sequence": 656,
       "period": "1st innings",
       "eventType": "six",
-      "team": "Australia",
+      "team": "India",
       "actor": "Shaheen Afridi",
-      "message": "Smashed straight down the ground for six. (Australia)",
+      "message": "Smashed straight down the ground for six. (India)",
       "tags": [
         "six"
       ],
@@ -9121,9 +9131,9 @@
       "sequence": 658,
       "period": "1st innings",
       "eventType": "over_end",
-      "team": "Australia",
+      "team": "India",
       "actor": "Virat Kohli",
-      "message": "End of the over with tidy bowling. (Australia)",
+      "message": "End of the over with tidy bowling. (India)",
       "tags": [
         "over"
       ]
@@ -9147,9 +9157,9 @@
       "sequence": 660,
       "period": "1st innings",
       "eventType": "run",
-      "team": "Australia",
+      "team": "India",
       "actor": "Mitchell Starc",
-      "message": "Quick single taken into the gap. (Australia)",
+      "message": "Quick single taken into the gap. (India)",
       "tags": [
         "run"
       ],
@@ -9181,9 +9191,9 @@
       "sequence": 662,
       "period": "1st innings",
       "eventType": "six",
-      "team": "Australia",
+      "team": "India",
       "actor": "Ben Stokes",
-      "message": "Smashed straight down the ground for six. (Australia)",
+      "message": "Smashed straight down the ground for six. (India)",
       "tags": [
         "six"
       ],
@@ -9211,9 +9221,9 @@
       "sequence": 664,
       "period": "1st innings",
       "eventType": "over_end",
-      "team": "Australia",
+      "team": "India",
       "actor": "Shaheen Afridi",
-      "message": "End of the over with tidy bowling. (Australia)",
+      "message": "End of the over with tidy bowling. (India)",
       "tags": [
         "over"
       ]
@@ -9237,9 +9247,9 @@
       "sequence": 666,
       "period": "1st innings",
       "eventType": "run",
-      "team": "Australia",
+      "team": "India",
       "actor": "Virat Kohli",
-      "message": "Quick single taken into the gap. (Australia)",
+      "message": "Quick single taken into the gap. (India)",
       "tags": [
         "run"
       ],
@@ -9271,9 +9281,9 @@
       "sequence": 668,
       "period": "1st innings",
       "eventType": "six",
-      "team": "Australia",
+      "team": "India",
       "actor": "Mitchell Starc",
-      "message": "Smashed straight down the ground for six. (Australia)",
+      "message": "Smashed straight down the ground for six. (India)",
       "tags": [
         "six"
       ],
@@ -9301,9 +9311,9 @@
       "sequence": 670,
       "period": "1st innings",
       "eventType": "over_end",
-      "team": "Australia",
+      "team": "India",
       "actor": "Ben Stokes",
-      "message": "End of the over with tidy bowling. (Australia)",
+      "message": "End of the over with tidy bowling. (India)",
       "tags": [
         "over"
       ]
@@ -9327,9 +9337,9 @@
       "sequence": 672,
       "period": "1st innings",
       "eventType": "run",
-      "team": "Australia",
+      "team": "India",
       "actor": "Shaheen Afridi",
-      "message": "Quick single taken into the gap. (Australia)",
+      "message": "Quick single taken into the gap. (India)",
       "tags": [
         "run"
       ],
@@ -9361,9 +9371,9 @@
       "sequence": 674,
       "period": "1st innings",
       "eventType": "six",
-      "team": "Australia",
+      "team": "India",
       "actor": "Virat Kohli",
-      "message": "Smashed straight down the ground for six. (Australia)",
+      "message": "Smashed straight down the ground for six. (India)",
       "tags": [
         "six"
       ],
@@ -9391,9 +9401,9 @@
       "sequence": 676,
       "period": "1st innings",
       "eventType": "over_end",
-      "team": "Australia",
+      "team": "India",
       "actor": "Mitchell Starc",
-      "message": "End of the over with tidy bowling. (Australia)",
+      "message": "End of the over with tidy bowling. (India)",
       "tags": [
         "over"
       ]
@@ -9417,9 +9427,9 @@
       "sequence": 678,
       "period": "1st innings",
       "eventType": "run",
-      "team": "Australia",
+      "team": "India",
       "actor": "Ben Stokes",
-      "message": "Quick single taken into the gap. (Australia)",
+      "message": "Quick single taken into the gap. (India)",
       "tags": [
         "run"
       ],
@@ -9451,9 +9461,9 @@
       "sequence": 680,
       "period": "1st innings",
       "eventType": "six",
-      "team": "Australia",
+      "team": "India",
       "actor": "Shaheen Afridi",
-      "message": "Smashed straight down the ground for six. (Australia)",
+      "message": "Smashed straight down the ground for six. (India)",
       "tags": [
         "six"
       ],
@@ -9481,9 +9491,9 @@
       "sequence": 682,
       "period": "1st innings",
       "eventType": "over_end",
-      "team": "Australia",
+      "team": "India",
       "actor": "Virat Kohli",
-      "message": "End of the over with tidy bowling. (Australia)",
+      "message": "End of the over with tidy bowling. (India)",
       "tags": [
         "over"
       ]
@@ -9507,9 +9517,9 @@
       "sequence": 684,
       "period": "1st innings",
       "eventType": "run",
-      "team": "Australia",
+      "team": "India",
       "actor": "Mitchell Starc",
-      "message": "Quick single taken into the gap. (Australia)",
+      "message": "Quick single taken into the gap. (India)",
       "tags": [
         "run"
       ],
@@ -9541,9 +9551,9 @@
       "sequence": 686,
       "period": "1st innings",
       "eventType": "six",
-      "team": "Australia",
+      "team": "India",
       "actor": "Ben Stokes",
-      "message": "Smashed straight down the ground for six. (Australia)",
+      "message": "Smashed straight down the ground for six. (India)",
       "tags": [
         "six"
       ],
@@ -9571,9 +9581,9 @@
       "sequence": 688,
       "period": "1st innings",
       "eventType": "over_end",
-      "team": "Australia",
+      "team": "India",
       "actor": "Shaheen Afridi",
-      "message": "End of the over with tidy bowling. (Australia)",
+      "message": "End of the over with tidy bowling. (India)",
       "tags": [
         "over"
       ]
@@ -9597,9 +9607,9 @@
       "sequence": 690,
       "period": "1st innings",
       "eventType": "run",
-      "team": "Australia",
+      "team": "India",
       "actor": "Virat Kohli",
-      "message": "Quick single taken into the gap. (Australia)",
+      "message": "Quick single taken into the gap. (India)",
       "tags": [
         "run"
       ],
@@ -9631,9 +9641,9 @@
       "sequence": 692,
       "period": "1st innings",
       "eventType": "six",
-      "team": "Australia",
+      "team": "India",
       "actor": "Mitchell Starc",
-      "message": "Smashed straight down the ground for six. (Australia)",
+      "message": "Smashed straight down the ground for six. (India)",
       "tags": [
         "six"
       ],
@@ -9661,9 +9671,9 @@
       "sequence": 694,
       "period": "1st innings",
       "eventType": "over_end",
-      "team": "Australia",
+      "team": "India",
       "actor": "Ben Stokes",
-      "message": "End of the over with tidy bowling. (Australia)",
+      "message": "End of the over with tidy bowling. (India)",
       "tags": [
         "over"
       ]
@@ -9687,9 +9697,9 @@
       "sequence": 696,
       "period": "1st innings",
       "eventType": "run",
-      "team": "Australia",
+      "team": "India",
       "actor": "Shaheen Afridi",
-      "message": "Quick single taken into the gap. (Australia)",
+      "message": "Quick single taken into the gap. (India)",
       "tags": [
         "run"
       ],
@@ -9721,9 +9731,9 @@
       "sequence": 698,
       "period": "1st innings",
       "eventType": "six",
-      "team": "Australia",
+      "team": "India",
       "actor": "Virat Kohli",
-      "message": "Smashed straight down the ground for six. (Australia)",
+      "message": "Smashed straight down the ground for six. (India)",
       "tags": [
         "six"
       ],
@@ -9751,9 +9761,9 @@
       "sequence": 700,
       "period": "1st innings",
       "eventType": "over_end",
-      "team": "Australia",
+      "team": "India",
       "actor": "Mitchell Starc",
-      "message": "End of the over with tidy bowling. (Australia)",
+      "message": "End of the over with tidy bowling. (India)",
       "tags": [
         "over"
       ]
@@ -9764,9 +9774,9 @@
       "sequence": 701,
       "period": "2nd innings",
       "eventType": "start",
-      "team": "India",
+      "team": "Australia",
       "actor": "Pat Cummins",
-      "message": "The innings begins with the openers walking out. (India)",
+      "message": "The innings begins with the openers walking out. (Australia)",
       "tags": [
         "start"
       ]
@@ -9794,9 +9804,9 @@
       "sequence": 703,
       "period": "2nd innings",
       "eventType": "four",
-      "team": "India",
+      "team": "Australia",
       "actor": "Babar Azam",
-      "message": "Cracking cover drive for four. (India)",
+      "message": "Cracking cover drive for four. (Australia)",
       "tags": [
         "boundary"
       ],
@@ -9828,9 +9838,9 @@
       "sequence": 705,
       "period": "2nd innings",
       "eventType": "wicket",
-      "team": "India",
+      "team": "Australia",
       "actor": "Rohit Sharma",
-      "message": "Wicket! A sharp catch at slip. (India)",
+      "message": "Wicket! A sharp catch at slip. (Australia)",
       "tags": [
         "wicket"
       ]
@@ -9854,9 +9864,9 @@
       "sequence": 707,
       "period": "2nd innings",
       "eventType": "start",
-      "team": "India",
+      "team": "Australia",
       "actor": "Shubman Gill",
-      "message": "The innings begins with the openers walking out. (India)",
+      "message": "The innings begins with the openers walking out. (Australia)",
       "tags": [
         "start"
       ]
@@ -9884,9 +9894,9 @@
       "sequence": 709,
       "period": "2nd innings",
       "eventType": "four",
-      "team": "India",
+      "team": "Australia",
       "actor": "Pat Cummins",
-      "message": "Cracking cover drive for four. (India)",
+      "message": "Cracking cover drive for four. (Australia)",
       "tags": [
         "boundary"
       ],
@@ -9918,9 +9928,9 @@
       "sequence": 711,
       "period": "2nd innings",
       "eventType": "wicket",
-      "team": "India",
+      "team": "Australia",
       "actor": "Babar Azam",
-      "message": "Wicket! A sharp catch at slip. (India)",
+      "message": "Wicket! A sharp catch at slip. (Australia)",
       "tags": [
         "wicket"
       ]
@@ -9944,9 +9954,9 @@
       "sequence": 713,
       "period": "2nd innings",
       "eventType": "start",
-      "team": "India",
+      "team": "Australia",
       "actor": "Rohit Sharma",
-      "message": "The innings begins with the openers walking out. (India)",
+      "message": "The innings begins with the openers walking out. (Australia)",
       "tags": [
         "start"
       ]
@@ -9974,9 +9984,9 @@
       "sequence": 715,
       "period": "2nd innings",
       "eventType": "four",
-      "team": "India",
+      "team": "Australia",
       "actor": "Shubman Gill",
-      "message": "Cracking cover drive for four. (India)",
+      "message": "Cracking cover drive for four. (Australia)",
       "tags": [
         "boundary"
       ],
@@ -10008,9 +10018,9 @@
       "sequence": 717,
       "period": "2nd innings",
       "eventType": "wicket",
-      "team": "India",
+      "team": "Australia",
       "actor": "Pat Cummins",
-      "message": "Wicket! A sharp catch at slip. (India)",
+      "message": "Wicket! A sharp catch at slip. (Australia)",
       "tags": [
         "wicket"
       ]
@@ -10034,9 +10044,9 @@
       "sequence": 719,
       "period": "2nd innings",
       "eventType": "start",
-      "team": "India",
+      "team": "Australia",
       "actor": "Babar Azam",
-      "message": "The innings begins with the openers walking out. (India)",
+      "message": "The innings begins with the openers walking out. (Australia)",
       "tags": [
         "start"
       ]
@@ -10064,9 +10074,9 @@
       "sequence": 721,
       "period": "2nd innings",
       "eventType": "four",
-      "team": "India",
+      "team": "Australia",
       "actor": "Rohit Sharma",
-      "message": "Cracking cover drive for four. (India)",
+      "message": "Cracking cover drive for four. (Australia)",
       "tags": [
         "boundary"
       ],
@@ -10098,9 +10108,9 @@
       "sequence": 723,
       "period": "2nd innings",
       "eventType": "wicket",
-      "team": "India",
+      "team": "Australia",
       "actor": "Shubman Gill",
-      "message": "Wicket! A sharp catch at slip. (India)",
+      "message": "Wicket! A sharp catch at slip. (Australia)",
       "tags": [
         "wicket"
       ]
@@ -10124,9 +10134,9 @@
       "sequence": 725,
       "period": "2nd innings",
       "eventType": "start",
-      "team": "India",
+      "team": "Australia",
       "actor": "Pat Cummins",
-      "message": "The innings begins with the openers walking out. (India)",
+      "message": "The innings begins with the openers walking out. (Australia)",
       "tags": [
         "start"
       ]
@@ -10154,9 +10164,9 @@
       "sequence": 727,
       "period": "2nd innings",
       "eventType": "four",
-      "team": "India",
+      "team": "Australia",
       "actor": "Babar Azam",
-      "message": "Cracking cover drive for four. (India)",
+      "message": "Cracking cover drive for four. (Australia)",
       "tags": [
         "boundary"
       ],
@@ -10188,9 +10198,9 @@
       "sequence": 729,
       "period": "2nd innings",
       "eventType": "wicket",
-      "team": "India",
+      "team": "Australia",
       "actor": "Rohit Sharma",
-      "message": "Wicket! A sharp catch at slip. (India)",
+      "message": "Wicket! A sharp catch at slip. (Australia)",
       "tags": [
         "wicket"
       ]
@@ -10214,9 +10224,9 @@
       "sequence": 731,
       "period": "2nd innings",
       "eventType": "start",
-      "team": "India",
+      "team": "Australia",
       "actor": "Shubman Gill",
-      "message": "The innings begins with the openers walking out. (India)",
+      "message": "The innings begins with the openers walking out. (Australia)",
       "tags": [
         "start"
       ]
@@ -10244,9 +10254,9 @@
       "sequence": 733,
       "period": "2nd innings",
       "eventType": "four",
-      "team": "India",
+      "team": "Australia",
       "actor": "Pat Cummins",
-      "message": "Cracking cover drive for four. (India)",
+      "message": "Cracking cover drive for four. (Australia)",
       "tags": [
         "boundary"
       ],
@@ -10278,9 +10288,9 @@
       "sequence": 735,
       "period": "2nd innings",
       "eventType": "wicket",
-      "team": "India",
+      "team": "Australia",
       "actor": "Babar Azam",
-      "message": "Wicket! A sharp catch at slip. (India)",
+      "message": "Wicket! A sharp catch at slip. (Australia)",
       "tags": [
         "wicket"
       ]
@@ -10304,9 +10314,9 @@
       "sequence": 737,
       "period": "2nd innings",
       "eventType": "start",
-      "team": "India",
+      "team": "Australia",
       "actor": "Rohit Sharma",
-      "message": "The innings begins with the openers walking out. (India)",
+      "message": "The innings begins with the openers walking out. (Australia)",
       "tags": [
         "start"
       ]
@@ -10334,9 +10344,9 @@
       "sequence": 739,
       "period": "2nd innings",
       "eventType": "four",
-      "team": "India",
+      "team": "Australia",
       "actor": "Shubman Gill",
-      "message": "Cracking cover drive for four. (India)",
+      "message": "Cracking cover drive for four. (Australia)",
       "tags": [
         "boundary"
       ],
@@ -10368,9 +10378,9 @@
       "sequence": 741,
       "period": "2nd innings",
       "eventType": "wicket",
-      "team": "India",
+      "team": "Australia",
       "actor": "Pat Cummins",
-      "message": "Wicket! A sharp catch at slip. (India)",
+      "message": "Wicket! A sharp catch at slip. (Australia)",
       "tags": [
         "wicket"
       ]
@@ -10394,9 +10404,9 @@
       "sequence": 743,
       "period": "2nd innings",
       "eventType": "start",
-      "team": "India",
+      "team": "Australia",
       "actor": "Babar Azam",
-      "message": "The innings begins with the openers walking out. (India)",
+      "message": "The innings begins with the openers walking out. (Australia)",
       "tags": [
         "start"
       ]
@@ -10424,9 +10434,9 @@
       "sequence": 745,
       "period": "2nd innings",
       "eventType": "four",
-      "team": "India",
+      "team": "Australia",
       "actor": "Rohit Sharma",
-      "message": "Cracking cover drive for four. (India)",
+      "message": "Cracking cover drive for four. (Australia)",
       "tags": [
         "boundary"
       ],
@@ -10458,9 +10468,9 @@
       "sequence": 747,
       "period": "2nd innings",
       "eventType": "wicket",
-      "team": "India",
+      "team": "Australia",
       "actor": "Shubman Gill",
-      "message": "Wicket! A sharp catch at slip. (India)",
+      "message": "Wicket! A sharp catch at slip. (Australia)",
       "tags": [
         "wicket"
       ]
@@ -10484,9 +10494,9 @@
       "sequence": 749,
       "period": "2nd innings",
       "eventType": "start",
-      "team": "India",
+      "team": "Australia",
       "actor": "Pat Cummins",
-      "message": "The innings begins with the openers walking out. (India)",
+      "message": "The innings begins with the openers walking out. (Australia)",
       "tags": [
         "start"
       ]
@@ -10514,9 +10524,9 @@
       "sequence": 751,
       "period": "2nd innings",
       "eventType": "four",
-      "team": "India",
+      "team": "Australia",
       "actor": "Babar Azam",
-      "message": "Cracking cover drive for four. (India)",
+      "message": "Cracking cover drive for four. (Australia)",
       "tags": [
         "boundary"
       ],
@@ -10548,9 +10558,9 @@
       "sequence": 753,
       "period": "2nd innings",
       "eventType": "wicket",
-      "team": "India",
+      "team": "Australia",
       "actor": "Rohit Sharma",
-      "message": "Wicket! A sharp catch at slip. (India)",
+      "message": "Wicket! A sharp catch at slip. (Australia)",
       "tags": [
         "wicket"
       ]
@@ -10574,9 +10584,9 @@
       "sequence": 755,
       "period": "2nd innings",
       "eventType": "start",
-      "team": "India",
+      "team": "Australia",
       "actor": "Shubman Gill",
-      "message": "The innings begins with the openers walking out. (India)",
+      "message": "The innings begins with the openers walking out. (Australia)",
       "tags": [
         "start"
       ]
@@ -10604,9 +10614,9 @@
       "sequence": 757,
       "period": "2nd innings",
       "eventType": "four",
-      "team": "India",
+      "team": "Australia",
       "actor": "Pat Cummins",
-      "message": "Cracking cover drive for four. (India)",
+      "message": "Cracking cover drive for four. (Australia)",
       "tags": [
         "boundary"
       ],
@@ -10638,9 +10648,9 @@
       "sequence": 759,
       "period": "2nd innings",
       "eventType": "wicket",
-      "team": "India",
+      "team": "Australia",
       "actor": "Babar Azam",
-      "message": "Wicket! A sharp catch at slip. (India)",
+      "message": "Wicket! A sharp catch at slip. (Australia)",
       "tags": [
         "wicket"
       ]
@@ -10677,9 +10687,9 @@
       "sequence": 762,
       "period": "1st innings",
       "eventType": "run",
-      "team": "Australia",
+      "team": "India",
       "actor": "Virat Kohli",
-      "message": "Quick single taken into the gap. (Australia)",
+      "message": "Quick single taken into the gap. (India)",
       "tags": [
         "run"
       ],
@@ -10711,9 +10721,9 @@
       "sequence": 764,
       "period": "1st innings",
       "eventType": "six",
-      "team": "Australia",
+      "team": "India",
       "actor": "Mitchell Starc",
-      "message": "Smashed straight down the ground for six. (Australia)",
+      "message": "Smashed straight down the ground for six. (India)",
       "tags": [
         "six"
       ],
@@ -10741,9 +10751,9 @@
       "sequence": 766,
       "period": "1st innings",
       "eventType": "over_end",
-      "team": "Australia",
+      "team": "India",
       "actor": "Ben Stokes",
-      "message": "End of the over with tidy bowling. (Australia)",
+      "message": "End of the over with tidy bowling. (India)",
       "tags": [
         "over"
       ]
@@ -10767,9 +10777,9 @@
       "sequence": 768,
       "period": "1st innings",
       "eventType": "run",
-      "team": "Australia",
+      "team": "India",
       "actor": "Shaheen Afridi",
-      "message": "Quick single taken into the gap. (Australia)",
+      "message": "Quick single taken into the gap. (India)",
       "tags": [
         "run"
       ],
@@ -10801,9 +10811,9 @@
       "sequence": 770,
       "period": "1st innings",
       "eventType": "six",
-      "team": "Australia",
+      "team": "India",
       "actor": "Virat Kohli",
-      "message": "Smashed straight down the ground for six. (Australia)",
+      "message": "Smashed straight down the ground for six. (India)",
       "tags": [
         "six"
       ],
@@ -10831,9 +10841,9 @@
       "sequence": 772,
       "period": "1st innings",
       "eventType": "over_end",
-      "team": "Australia",
+      "team": "India",
       "actor": "Mitchell Starc",
-      "message": "End of the over with tidy bowling. (Australia)",
+      "message": "End of the over with tidy bowling. (India)",
       "tags": [
         "over"
       ]
@@ -10857,9 +10867,9 @@
       "sequence": 774,
       "period": "1st innings",
       "eventType": "run",
-      "team": "Australia",
+      "team": "India",
       "actor": "Ben Stokes",
-      "message": "Quick single taken into the gap. (Australia)",
+      "message": "Quick single taken into the gap. (India)",
       "tags": [
         "run"
       ],
@@ -10891,9 +10901,9 @@
       "sequence": 776,
       "period": "1st innings",
       "eventType": "six",
-      "team": "Australia",
+      "team": "India",
       "actor": "Shaheen Afridi",
-      "message": "Smashed straight down the ground for six. (Australia)",
+      "message": "Smashed straight down the ground for six. (India)",
       "tags": [
         "six"
       ],
@@ -10921,9 +10931,9 @@
       "sequence": 778,
       "period": "1st innings",
       "eventType": "over_end",
-      "team": "Australia",
+      "team": "India",
       "actor": "Virat Kohli",
-      "message": "End of the over with tidy bowling. (Australia)",
+      "message": "End of the over with tidy bowling. (India)",
       "tags": [
         "over"
       ]
@@ -10947,9 +10957,9 @@
       "sequence": 780,
       "period": "1st innings",
       "eventType": "run",
-      "team": "Australia",
+      "team": "India",
       "actor": "Mitchell Starc",
-      "message": "Quick single taken into the gap. (Australia)",
+      "message": "Quick single taken into the gap. (India)",
       "tags": [
         "run"
       ],
@@ -10977,9 +10987,9 @@
       "sequence": 782,
       "period": "1st innings",
       "eventType": "run",
-      "team": "Pakistan",
+      "team": "England",
       "actor": "Virat Kohli",
-      "message": "Quick single taken into the gap. (Pakistan)",
+      "message": "Quick single taken into the gap. (England)",
       "tags": [
         "run"
       ],
@@ -11011,9 +11021,9 @@
       "sequence": 784,
       "period": "1st innings",
       "eventType": "six",
-      "team": "Pakistan",
+      "team": "England",
       "actor": "Mitchell Starc",
-      "message": "Smashed straight down the ground for six. (Pakistan)",
+      "message": "Smashed straight down the ground for six. (England)",
       "tags": [
         "six"
       ],
@@ -11041,9 +11051,9 @@
       "sequence": 786,
       "period": "1st innings",
       "eventType": "over_end",
-      "team": "Pakistan",
+      "team": "England",
       "actor": "Ben Stokes",
-      "message": "End of the over with tidy bowling. (Pakistan)",
+      "message": "End of the over with tidy bowling. (England)",
       "tags": [
         "over"
       ]
@@ -11067,9 +11077,9 @@
       "sequence": 788,
       "period": "1st innings",
       "eventType": "run",
-      "team": "Pakistan",
+      "team": "England",
       "actor": "Shaheen Afridi",
-      "message": "Quick single taken into the gap. (Pakistan)",
+      "message": "Quick single taken into the gap. (England)",
       "tags": [
         "run"
       ],
@@ -11101,9 +11111,9 @@
       "sequence": 790,
       "period": "1st innings",
       "eventType": "six",
-      "team": "Pakistan",
+      "team": "England",
       "actor": "Virat Kohli",
-      "message": "Smashed straight down the ground for six. (Pakistan)",
+      "message": "Smashed straight down the ground for six. (England)",
       "tags": [
         "six"
       ],
@@ -11131,9 +11141,9 @@
       "sequence": 792,
       "period": "1st innings",
       "eventType": "over_end",
-      "team": "Pakistan",
+      "team": "England",
       "actor": "Mitchell Starc",
-      "message": "End of the over with tidy bowling. (Pakistan)",
+      "message": "End of the over with tidy bowling. (England)",
       "tags": [
         "over"
       ]
@@ -11157,9 +11167,9 @@
       "sequence": 794,
       "period": "1st innings",
       "eventType": "run",
-      "team": "Pakistan",
+      "team": "England",
       "actor": "Ben Stokes",
-      "message": "Quick single taken into the gap. (Pakistan)",
+      "message": "Quick single taken into the gap. (England)",
       "tags": [
         "run"
       ],
@@ -11191,9 +11201,9 @@
       "sequence": 796,
       "period": "1st innings",
       "eventType": "six",
-      "team": "Pakistan",
+      "team": "England",
       "actor": "Shaheen Afridi",
-      "message": "Smashed straight down the ground for six. (Pakistan)",
+      "message": "Smashed straight down the ground for six. (England)",
       "tags": [
         "six"
       ],
@@ -11221,9 +11231,9 @@
       "sequence": 798,
       "period": "1st innings",
       "eventType": "over_end",
-      "team": "Pakistan",
+      "team": "England",
       "actor": "Virat Kohli",
-      "message": "End of the over with tidy bowling. (Pakistan)",
+      "message": "End of the over with tidy bowling. (England)",
       "tags": [
         "over"
       ]
@@ -11247,9 +11257,9 @@
       "sequence": 800,
       "period": "1st innings",
       "eventType": "run",
-      "team": "Pakistan",
+      "team": "England",
       "actor": "Mitchell Starc",
-      "message": "Quick single taken into the gap. (Pakistan)",
+      "message": "Quick single taken into the gap. (England)",
       "tags": [
         "run"
       ],
@@ -11281,9 +11291,9 @@
       "sequence": 802,
       "period": "1st innings",
       "eventType": "six",
-      "team": "Pakistan",
+      "team": "England",
       "actor": "Ben Stokes",
-      "message": "Smashed straight down the ground for six. (Pakistan)",
+      "message": "Smashed straight down the ground for six. (England)",
       "tags": [
         "six"
       ],
@@ -11311,9 +11321,9 @@
       "sequence": 804,
       "period": "1st innings",
       "eventType": "over_end",
-      "team": "Pakistan",
+      "team": "England",
       "actor": "Shaheen Afridi",
-      "message": "End of the over with tidy bowling. (Pakistan)",
+      "message": "End of the over with tidy bowling. (England)",
       "tags": [
         "over"
       ]
@@ -11337,9 +11347,9 @@
       "sequence": 806,
       "period": "1st innings",
       "eventType": "run",
-      "team": "Pakistan",
+      "team": "England",
       "actor": "Virat Kohli",
-      "message": "Quick single taken into the gap. (Pakistan)",
+      "message": "Quick single taken into the gap. (England)",
       "tags": [
         "run"
       ],
@@ -11371,9 +11381,9 @@
       "sequence": 808,
       "period": "1st innings",
       "eventType": "six",
-      "team": "Pakistan",
+      "team": "England",
       "actor": "Mitchell Starc",
-      "message": "Smashed straight down the ground for six. (Pakistan)",
+      "message": "Smashed straight down the ground for six. (England)",
       "tags": [
         "six"
       ],
@@ -11401,9 +11411,9 @@
       "sequence": 810,
       "period": "1st innings",
       "eventType": "over_end",
-      "team": "Pakistan",
+      "team": "England",
       "actor": "Ben Stokes",
-      "message": "End of the over with tidy bowling. (Pakistan)",
+      "message": "End of the over with tidy bowling. (England)",
       "tags": [
         "over"
       ]
@@ -11427,9 +11437,9 @@
       "sequence": 812,
       "period": "1st innings",
       "eventType": "run",
-      "team": "Pakistan",
+      "team": "England",
       "actor": "Shaheen Afridi",
-      "message": "Quick single taken into the gap. (Pakistan)",
+      "message": "Quick single taken into the gap. (England)",
       "tags": [
         "run"
       ],
@@ -11461,9 +11471,9 @@
       "sequence": 814,
       "period": "1st innings",
       "eventType": "six",
-      "team": "Pakistan",
+      "team": "England",
       "actor": "Virat Kohli",
-      "message": "Smashed straight down the ground for six. (Pakistan)",
+      "message": "Smashed straight down the ground for six. (England)",
       "tags": [
         "six"
       ],
@@ -11491,9 +11501,9 @@
       "sequence": 816,
       "period": "1st innings",
       "eventType": "over_end",
-      "team": "Pakistan",
+      "team": "England",
       "actor": "Mitchell Starc",
-      "message": "End of the over with tidy bowling. (Pakistan)",
+      "message": "End of the over with tidy bowling. (England)",
       "tags": [
         "over"
       ]
@@ -11517,9 +11527,9 @@
       "sequence": 818,
       "period": "1st innings",
       "eventType": "run",
-      "team": "Pakistan",
+      "team": "England",
       "actor": "Ben Stokes",
-      "message": "Quick single taken into the gap. (Pakistan)",
+      "message": "Quick single taken into the gap. (England)",
       "tags": [
         "run"
       ],
@@ -11551,9 +11561,9 @@
       "sequence": 820,
       "period": "1st innings",
       "eventType": "six",
-      "team": "Pakistan",
+      "team": "England",
       "actor": "Shaheen Afridi",
-      "message": "Smashed straight down the ground for six. (Pakistan)",
+      "message": "Smashed straight down the ground for six. (England)",
       "tags": [
         "six"
       ],
@@ -11581,9 +11591,9 @@
       "sequence": 822,
       "period": "1st innings",
       "eventType": "over_end",
-      "team": "Pakistan",
+      "team": "England",
       "actor": "Virat Kohli",
-      "message": "End of the over with tidy bowling. (Pakistan)",
+      "message": "End of the over with tidy bowling. (England)",
       "tags": [
         "over"
       ]
@@ -11607,9 +11617,9 @@
       "sequence": 824,
       "period": "1st innings",
       "eventType": "run",
-      "team": "Pakistan",
+      "team": "England",
       "actor": "Mitchell Starc",
-      "message": "Quick single taken into the gap. (Pakistan)",
+      "message": "Quick single taken into the gap. (England)",
       "tags": [
         "run"
       ],
@@ -11641,9 +11651,9 @@
       "sequence": 826,
       "period": "1st innings",
       "eventType": "six",
-      "team": "Pakistan",
+      "team": "England",
       "actor": "Ben Stokes",
-      "message": "Smashed straight down the ground for six. (Pakistan)",
+      "message": "Smashed straight down the ground for six. (England)",
       "tags": [
         "six"
       ],
@@ -11671,9 +11681,9 @@
       "sequence": 828,
       "period": "1st innings",
       "eventType": "over_end",
-      "team": "Pakistan",
+      "team": "England",
       "actor": "Shaheen Afridi",
-      "message": "End of the over with tidy bowling. (Pakistan)",
+      "message": "End of the over with tidy bowling. (England)",
       "tags": [
         "over"
       ]
@@ -11697,9 +11707,9 @@
       "sequence": 830,
       "period": "1st innings",
       "eventType": "run",
-      "team": "Pakistan",
+      "team": "England",
       "actor": "Virat Kohli",
-      "message": "Quick single taken into the gap. (Pakistan)",
+      "message": "Quick single taken into the gap. (England)",
       "tags": [
         "run"
       ],
@@ -11731,9 +11741,9 @@
       "sequence": 832,
       "period": "1st innings",
       "eventType": "six",
-      "team": "Pakistan",
+      "team": "England",
       "actor": "Mitchell Starc",
-      "message": "Smashed straight down the ground for six. (Pakistan)",
+      "message": "Smashed straight down the ground for six. (England)",
       "tags": [
         "six"
       ],
@@ -11761,9 +11771,9 @@
       "sequence": 834,
       "period": "1st innings",
       "eventType": "over_end",
-      "team": "Pakistan",
+      "team": "England",
       "actor": "Ben Stokes",
-      "message": "End of the over with tidy bowling. (Pakistan)",
+      "message": "End of the over with tidy bowling. (England)",
       "tags": [
         "over"
       ]
@@ -11787,9 +11797,9 @@
       "sequence": 836,
       "period": "1st innings",
       "eventType": "run",
-      "team": "Pakistan",
+      "team": "England",
       "actor": "Shaheen Afridi",
-      "message": "Quick single taken into the gap. (Pakistan)",
+      "message": "Quick single taken into the gap. (England)",
       "tags": [
         "run"
       ],
@@ -11821,9 +11831,9 @@
       "sequence": 838,
       "period": "1st innings",
       "eventType": "six",
-      "team": "Pakistan",
+      "team": "England",
       "actor": "Virat Kohli",
-      "message": "Smashed straight down the ground for six. (Pakistan)",
+      "message": "Smashed straight down the ground for six. (England)",
       "tags": [
         "six"
       ],
@@ -11851,9 +11861,9 @@
       "sequence": 840,
       "period": "1st innings",
       "eventType": "over_end",
-      "team": "Pakistan",
+      "team": "England",
       "actor": "Mitchell Starc",
-      "message": "End of the over with tidy bowling. (Pakistan)",
+      "message": "End of the over with tidy bowling. (England)",
       "tags": [
         "over"
       ]
@@ -11864,9 +11874,9 @@
       "sequence": 841,
       "period": "2nd innings",
       "eventType": "start",
-      "team": "England",
+      "team": "Pakistan",
       "actor": "Pat Cummins",
-      "message": "The innings begins with the openers walking out. (England)",
+      "message": "The innings begins with the openers walking out. (Pakistan)",
       "tags": [
         "start"
       ]
@@ -11894,9 +11904,9 @@
       "sequence": 843,
       "period": "2nd innings",
       "eventType": "four",
-      "team": "England",
+      "team": "Pakistan",
       "actor": "Babar Azam",
-      "message": "Cracking cover drive for four. (England)",
+      "message": "Cracking cover drive for four. (Pakistan)",
       "tags": [
         "boundary"
       ],
@@ -11928,9 +11938,9 @@
       "sequence": 845,
       "period": "2nd innings",
       "eventType": "wicket",
-      "team": "England",
+      "team": "Pakistan",
       "actor": "Rohit Sharma",
-      "message": "Wicket! A sharp catch at slip. (England)",
+      "message": "Wicket! A sharp catch at slip. (Pakistan)",
       "tags": [
         "wicket"
       ]
@@ -11954,9 +11964,9 @@
       "sequence": 847,
       "period": "2nd innings",
       "eventType": "start",
-      "team": "England",
+      "team": "Pakistan",
       "actor": "Shubman Gill",
-      "message": "The innings begins with the openers walking out. (England)",
+      "message": "The innings begins with the openers walking out. (Pakistan)",
       "tags": [
         "start"
       ]
@@ -11984,9 +11994,9 @@
       "sequence": 849,
       "period": "2nd innings",
       "eventType": "four",
-      "team": "England",
+      "team": "Pakistan",
       "actor": "Pat Cummins",
-      "message": "Cracking cover drive for four. (England)",
+      "message": "Cracking cover drive for four. (Pakistan)",
       "tags": [
         "boundary"
       ],
@@ -12018,9 +12028,9 @@
       "sequence": 851,
       "period": "2nd innings",
       "eventType": "wicket",
-      "team": "England",
+      "team": "Pakistan",
       "actor": "Babar Azam",
-      "message": "Wicket! A sharp catch at slip. (England)",
+      "message": "Wicket! A sharp catch at slip. (Pakistan)",
       "tags": [
         "wicket"
       ]
@@ -12044,9 +12054,9 @@
       "sequence": 853,
       "period": "2nd innings",
       "eventType": "start",
-      "team": "England",
+      "team": "Pakistan",
       "actor": "Rohit Sharma",
-      "message": "The innings begins with the openers walking out. (England)",
+      "message": "The innings begins with the openers walking out. (Pakistan)",
       "tags": [
         "start"
       ]
@@ -12074,9 +12084,9 @@
       "sequence": 855,
       "period": "2nd innings",
       "eventType": "four",
-      "team": "England",
+      "team": "Pakistan",
       "actor": "Shubman Gill",
-      "message": "Cracking cover drive for four. (England)",
+      "message": "Cracking cover drive for four. (Pakistan)",
       "tags": [
         "boundary"
       ],
@@ -12108,9 +12118,9 @@
       "sequence": 857,
       "period": "2nd innings",
       "eventType": "wicket",
-      "team": "England",
+      "team": "Pakistan",
       "actor": "Pat Cummins",
-      "message": "Wicket! A sharp catch at slip. (England)",
+      "message": "Wicket! A sharp catch at slip. (Pakistan)",
       "tags": [
         "wicket"
       ]
@@ -12134,9 +12144,9 @@
       "sequence": 859,
       "period": "2nd innings",
       "eventType": "start",
-      "team": "England",
+      "team": "Pakistan",
       "actor": "Babar Azam",
-      "message": "The innings begins with the openers walking out. (England)",
+      "message": "The innings begins with the openers walking out. (Pakistan)",
       "tags": [
         "start"
       ]
@@ -12164,9 +12174,9 @@
       "sequence": 861,
       "period": "2nd innings",
       "eventType": "four",
-      "team": "England",
+      "team": "Pakistan",
       "actor": "Rohit Sharma",
-      "message": "Cracking cover drive for four. (England)",
+      "message": "Cracking cover drive for four. (Pakistan)",
       "tags": [
         "boundary"
       ],
@@ -12198,9 +12208,9 @@
       "sequence": 863,
       "period": "2nd innings",
       "eventType": "wicket",
-      "team": "England",
+      "team": "Pakistan",
       "actor": "Shubman Gill",
-      "message": "Wicket! A sharp catch at slip. (England)",
+      "message": "Wicket! A sharp catch at slip. (Pakistan)",
       "tags": [
         "wicket"
       ]
@@ -12224,9 +12234,9 @@
       "sequence": 865,
       "period": "2nd innings",
       "eventType": "start",
-      "team": "England",
+      "team": "Pakistan",
       "actor": "Pat Cummins",
-      "message": "The innings begins with the openers walking out. (England)",
+      "message": "The innings begins with the openers walking out. (Pakistan)",
       "tags": [
         "start"
       ]
@@ -12254,9 +12264,9 @@
       "sequence": 867,
       "period": "2nd innings",
       "eventType": "four",
-      "team": "England",
+      "team": "Pakistan",
       "actor": "Babar Azam",
-      "message": "Cracking cover drive for four. (England)",
+      "message": "Cracking cover drive for four. (Pakistan)",
       "tags": [
         "boundary"
       ],
@@ -12288,9 +12298,9 @@
       "sequence": 869,
       "period": "2nd innings",
       "eventType": "wicket",
-      "team": "England",
+      "team": "Pakistan",
       "actor": "Rohit Sharma",
-      "message": "Wicket! A sharp catch at slip. (England)",
+      "message": "Wicket! A sharp catch at slip. (Pakistan)",
       "tags": [
         "wicket"
       ]
@@ -12314,9 +12324,9 @@
       "sequence": 871,
       "period": "2nd innings",
       "eventType": "start",
-      "team": "England",
+      "team": "Pakistan",
       "actor": "Shubman Gill",
-      "message": "The innings begins with the openers walking out. (England)",
+      "message": "The innings begins with the openers walking out. (Pakistan)",
       "tags": [
         "start"
       ]
@@ -12344,9 +12354,9 @@
       "sequence": 873,
       "period": "2nd innings",
       "eventType": "four",
-      "team": "England",
+      "team": "Pakistan",
       "actor": "Pat Cummins",
-      "message": "Cracking cover drive for four. (England)",
+      "message": "Cracking cover drive for four. (Pakistan)",
       "tags": [
         "boundary"
       ],
@@ -12378,9 +12388,9 @@
       "sequence": 875,
       "period": "2nd innings",
       "eventType": "wicket",
-      "team": "England",
+      "team": "Pakistan",
       "actor": "Babar Azam",
-      "message": "Wicket! A sharp catch at slip. (England)",
+      "message": "Wicket! A sharp catch at slip. (Pakistan)",
       "tags": [
         "wicket"
       ]
@@ -12404,9 +12414,9 @@
       "sequence": 877,
       "period": "2nd innings",
       "eventType": "start",
-      "team": "England",
+      "team": "Pakistan",
       "actor": "Rohit Sharma",
-      "message": "The innings begins with the openers walking out. (England)",
+      "message": "The innings begins with the openers walking out. (Pakistan)",
       "tags": [
         "start"
       ]
@@ -12434,9 +12444,9 @@
       "sequence": 879,
       "period": "2nd innings",
       "eventType": "four",
-      "team": "England",
+      "team": "Pakistan",
       "actor": "Shubman Gill",
-      "message": "Cracking cover drive for four. (England)",
+      "message": "Cracking cover drive for four. (Pakistan)",
       "tags": [
         "boundary"
       ],
@@ -12468,9 +12478,9 @@
       "sequence": 881,
       "period": "2nd innings",
       "eventType": "wicket",
-      "team": "England",
+      "team": "Pakistan",
       "actor": "Pat Cummins",
-      "message": "Wicket! A sharp catch at slip. (England)",
+      "message": "Wicket! A sharp catch at slip. (Pakistan)",
       "tags": [
         "wicket"
       ]
@@ -12494,9 +12504,9 @@
       "sequence": 883,
       "period": "2nd innings",
       "eventType": "start",
-      "team": "England",
+      "team": "Pakistan",
       "actor": "Babar Azam",
-      "message": "The innings begins with the openers walking out. (England)",
+      "message": "The innings begins with the openers walking out. (Pakistan)",
       "tags": [
         "start"
       ]
@@ -12524,9 +12534,9 @@
       "sequence": 885,
       "period": "2nd innings",
       "eventType": "four",
-      "team": "England",
+      "team": "Pakistan",
       "actor": "Rohit Sharma",
-      "message": "Cracking cover drive for four. (England)",
+      "message": "Cracking cover drive for four. (Pakistan)",
       "tags": [
         "boundary"
       ],
@@ -12558,9 +12568,9 @@
       "sequence": 887,
       "period": "2nd innings",
       "eventType": "wicket",
-      "team": "England",
+      "team": "Pakistan",
       "actor": "Shubman Gill",
-      "message": "Wicket! A sharp catch at slip. (England)",
+      "message": "Wicket! A sharp catch at slip. (Pakistan)",
       "tags": [
         "wicket"
       ]
@@ -12584,9 +12594,9 @@
       "sequence": 889,
       "period": "2nd innings",
       "eventType": "start",
-      "team": "England",
+      "team": "Pakistan",
       "actor": "Pat Cummins",
-      "message": "The innings begins with the openers walking out. (England)",
+      "message": "The innings begins with the openers walking out. (Pakistan)",
       "tags": [
         "start"
       ]
@@ -12614,9 +12624,9 @@
       "sequence": 891,
       "period": "2nd innings",
       "eventType": "four",
-      "team": "England",
+      "team": "Pakistan",
       "actor": "Babar Azam",
-      "message": "Cracking cover drive for four. (England)",
+      "message": "Cracking cover drive for four. (Pakistan)",
       "tags": [
         "boundary"
       ],
@@ -12648,9 +12658,9 @@
       "sequence": 893,
       "period": "2nd innings",
       "eventType": "wicket",
-      "team": "England",
+      "team": "Pakistan",
       "actor": "Rohit Sharma",
-      "message": "Wicket! A sharp catch at slip. (England)",
+      "message": "Wicket! A sharp catch at slip. (Pakistan)",
       "tags": [
         "wicket"
       ]
@@ -12674,9 +12684,9 @@
       "sequence": 895,
       "period": "2nd innings",
       "eventType": "start",
-      "team": "England",
+      "team": "Pakistan",
       "actor": "Shubman Gill",
-      "message": "The innings begins with the openers walking out. (England)",
+      "message": "The innings begins with the openers walking out. (Pakistan)",
       "tags": [
         "start"
       ]
@@ -12704,9 +12714,9 @@
       "sequence": 897,
       "period": "2nd innings",
       "eventType": "four",
-      "team": "England",
+      "team": "Pakistan",
       "actor": "Pat Cummins",
-      "message": "Cracking cover drive for four. (England)",
+      "message": "Cracking cover drive for four. (Pakistan)",
       "tags": [
         "boundary"
       ],
@@ -12738,9 +12748,9 @@
       "sequence": 899,
       "period": "2nd innings",
       "eventType": "wicket",
-      "team": "England",
+      "team": "Pakistan",
       "actor": "Babar Azam",
-      "message": "Wicket! A sharp catch at slip. (England)",
+      "message": "Wicket! A sharp catch at slip. (Pakistan)",
       "tags": [
         "wicket"
       ]
@@ -12777,9 +12787,9 @@
       "sequence": 902,
       "period": "1st innings",
       "eventType": "run",
-      "team": "Pakistan",
+      "team": "England",
       "actor": "Virat Kohli",
-      "message": "Quick single taken into the gap. (Pakistan)",
+      "message": "Quick single taken into the gap. (England)",
       "tags": [
         "run"
       ],
@@ -12811,9 +12821,9 @@
       "sequence": 904,
       "period": "1st innings",
       "eventType": "six",
-      "team": "Pakistan",
+      "team": "England",
       "actor": "Mitchell Starc",
-      "message": "Smashed straight down the ground for six. (Pakistan)",
+      "message": "Smashed straight down the ground for six. (England)",
       "tags": [
         "six"
       ],
@@ -12841,9 +12851,9 @@
       "sequence": 906,
       "period": "1st innings",
       "eventType": "over_end",
-      "team": "Pakistan",
+      "team": "England",
       "actor": "Ben Stokes",
-      "message": "End of the over with tidy bowling. (Pakistan)",
+      "message": "End of the over with tidy bowling. (England)",
       "tags": [
         "over"
       ]
@@ -12867,9 +12877,9 @@
       "sequence": 908,
       "period": "1st innings",
       "eventType": "run",
-      "team": "Pakistan",
+      "team": "England",
       "actor": "Shaheen Afridi",
-      "message": "Quick single taken into the gap. (Pakistan)",
+      "message": "Quick single taken into the gap. (England)",
       "tags": [
         "run"
       ],
@@ -12901,9 +12911,9 @@
       "sequence": 910,
       "period": "1st innings",
       "eventType": "six",
-      "team": "Pakistan",
+      "team": "England",
       "actor": "Virat Kohli",
-      "message": "Smashed straight down the ground for six. (Pakistan)",
+      "message": "Smashed straight down the ground for six. (England)",
       "tags": [
         "six"
       ],
@@ -12931,9 +12941,9 @@
       "sequence": 912,
       "period": "1st innings",
       "eventType": "over_end",
-      "team": "Pakistan",
+      "team": "England",
       "actor": "Mitchell Starc",
-      "message": "End of the over with tidy bowling. (Pakistan)",
+      "message": "End of the over with tidy bowling. (England)",
       "tags": [
         "over"
       ]
@@ -12957,9 +12967,9 @@
       "sequence": 914,
       "period": "1st innings",
       "eventType": "run",
-      "team": "Pakistan",
+      "team": "England",
       "actor": "Ben Stokes",
-      "message": "Quick single taken into the gap. (Pakistan)",
+      "message": "Quick single taken into the gap. (England)",
       "tags": [
         "run"
       ],
@@ -12991,9 +13001,9 @@
       "sequence": 916,
       "period": "1st innings",
       "eventType": "six",
-      "team": "Pakistan",
+      "team": "England",
       "actor": "Shaheen Afridi",
-      "message": "Smashed straight down the ground for six. (Pakistan)",
+      "message": "Smashed straight down the ground for six. (England)",
       "tags": [
         "six"
       ],
@@ -13021,9 +13031,9 @@
       "sequence": 918,
       "period": "1st innings",
       "eventType": "over_end",
-      "team": "Pakistan",
+      "team": "England",
       "actor": "Virat Kohli",
-      "message": "End of the over with tidy bowling. (Pakistan)",
+      "message": "End of the over with tidy bowling. (England)",
       "tags": [
         "over"
       ]
@@ -13047,9 +13057,9 @@
       "sequence": 920,
       "period": "1st innings",
       "eventType": "run",
-      "team": "Pakistan",
+      "team": "England",
       "actor": "Mitchell Starc",
-      "message": "Quick single taken into the gap. (Pakistan)",
+      "message": "Quick single taken into the gap. (England)",
       "tags": [
         "run"
       ],
@@ -13081,9 +13091,9 @@
       "sequence": 922,
       "period": "1st innings",
       "eventType": "six",
-      "team": "Pakistan",
+      "team": "England",
       "actor": "Ben Stokes",
-      "message": "Smashed straight down the ground for six. (Pakistan)",
+      "message": "Smashed straight down the ground for six. (England)",
       "tags": [
         "six"
       ],
@@ -13111,9 +13121,9 @@
       "sequence": 924,
       "period": "1st innings",
       "eventType": "over_end",
-      "team": "Pakistan",
+      "team": "England",
       "actor": "Shaheen Afridi",
-      "message": "End of the over with tidy bowling. (Pakistan)",
+      "message": "End of the over with tidy bowling. (England)",
       "tags": [
         "over"
       ]
@@ -13137,9 +13147,9 @@
       "sequence": 926,
       "period": "1st innings",
       "eventType": "run",
-      "team": "Pakistan",
+      "team": "England",
       "actor": "Virat Kohli",
-      "message": "Quick single taken into the gap. (Pakistan)",
+      "message": "Quick single taken into the gap. (England)",
       "tags": [
         "run"
       ],
@@ -13171,9 +13181,9 @@
       "sequence": 928,
       "period": "1st innings",
       "eventType": "six",
-      "team": "Pakistan",
+      "team": "England",
       "actor": "Mitchell Starc",
-      "message": "Smashed straight down the ground for six. (Pakistan)",
+      "message": "Smashed straight down the ground for six. (England)",
       "tags": [
         "six"
       ],
@@ -13201,9 +13211,9 @@
       "sequence": 930,
       "period": "1st innings",
       "eventType": "over_end",
-      "team": "Pakistan",
+      "team": "England",
       "actor": "Ben Stokes",
-      "message": "End of the over with tidy bowling. (Pakistan)",
+      "message": "End of the over with tidy bowling. (England)",
       "tags": [
         "over"
       ]
@@ -13227,9 +13237,9 @@
       "sequence": 932,
       "period": "1st innings",
       "eventType": "run",
-      "team": "Pakistan",
+      "team": "England",
       "actor": "Shaheen Afridi",
-      "message": "Quick single taken into the gap. (Pakistan)",
+      "message": "Quick single taken into the gap. (England)",
       "tags": [
         "run"
       ],
@@ -13261,9 +13271,9 @@
       "sequence": 934,
       "period": "1st innings",
       "eventType": "six",
-      "team": "Pakistan",
+      "team": "England",
       "actor": "Virat Kohli",
-      "message": "Smashed straight down the ground for six. (Pakistan)",
+      "message": "Smashed straight down the ground for six. (England)",
       "tags": [
         "six"
       ],
@@ -13291,9 +13301,9 @@
       "sequence": 936,
       "period": "1st innings",
       "eventType": "over_end",
-      "team": "Pakistan",
+      "team": "England",
       "actor": "Mitchell Starc",
-      "message": "End of the over with tidy bowling. (Pakistan)",
+      "message": "End of the over with tidy bowling. (England)",
       "tags": [
         "over"
       ]
@@ -13317,9 +13327,9 @@
       "sequence": 938,
       "period": "1st innings",
       "eventType": "run",
-      "team": "Pakistan",
+      "team": "England",
       "actor": "Ben Stokes",
-      "message": "Quick single taken into the gap. (Pakistan)",
+      "message": "Quick single taken into the gap. (England)",
       "tags": [
         "run"
       ],
@@ -13351,9 +13361,9 @@
       "sequence": 940,
       "period": "1st innings",
       "eventType": "six",
-      "team": "Pakistan",
+      "team": "England",
       "actor": "Shaheen Afridi",
-      "message": "Smashed straight down the ground for six. (Pakistan)",
+      "message": "Smashed straight down the ground for six. (England)",
       "tags": [
         "six"
       ],
@@ -13381,9 +13391,9 @@
       "sequence": 942,
       "period": "1st innings",
       "eventType": "over_end",
-      "team": "Pakistan",
+      "team": "England",
       "actor": "Virat Kohli",
-      "message": "End of the over with tidy bowling. (Pakistan)",
+      "message": "End of the over with tidy bowling. (England)",
       "tags": [
         "over"
       ]
@@ -13407,9 +13417,9 @@
       "sequence": 944,
       "period": "1st innings",
       "eventType": "run",
-      "team": "Pakistan",
+      "team": "England",
       "actor": "Mitchell Starc",
-      "message": "Quick single taken into the gap. (Pakistan)",
+      "message": "Quick single taken into the gap. (England)",
       "tags": [
         "run"
       ],
@@ -13441,9 +13451,9 @@
       "sequence": 946,
       "period": "1st innings",
       "eventType": "six",
-      "team": "Pakistan",
+      "team": "England",
       "actor": "Ben Stokes",
-      "message": "Smashed straight down the ground for six. (Pakistan)",
+      "message": "Smashed straight down the ground for six. (England)",
       "tags": [
         "six"
       ],
@@ -13471,9 +13481,9 @@
       "sequence": 948,
       "period": "1st innings",
       "eventType": "over_end",
-      "team": "Pakistan",
+      "team": "England",
       "actor": "Shaheen Afridi",
-      "message": "End of the over with tidy bowling. (Pakistan)",
+      "message": "End of the over with tidy bowling. (England)",
       "tags": [
         "over"
       ]
@@ -13497,9 +13507,9 @@
       "sequence": 950,
       "period": "1st innings",
       "eventType": "run",
-      "team": "Pakistan",
+      "team": "England",
       "actor": "Virat Kohli",
-      "message": "Quick single taken into the gap. (Pakistan)",
+      "message": "Quick single taken into the gap. (England)",
       "tags": [
         "run"
       ],
@@ -13531,9 +13541,9 @@
       "sequence": 952,
       "period": "1st innings",
       "eventType": "six",
-      "team": "Pakistan",
+      "team": "England",
       "actor": "Mitchell Starc",
-      "message": "Smashed straight down the ground for six. (Pakistan)",
+      "message": "Smashed straight down the ground for six. (England)",
       "tags": [
         "six"
       ],
@@ -13561,9 +13571,9 @@
       "sequence": 954,
       "period": "1st innings",
       "eventType": "over_end",
-      "team": "Pakistan",
+      "team": "England",
       "actor": "Ben Stokes",
-      "message": "End of the over with tidy bowling. (Pakistan)",
+      "message": "End of the over with tidy bowling. (England)",
       "tags": [
         "over"
       ]
@@ -13587,9 +13597,9 @@
       "sequence": 956,
       "period": "1st innings",
       "eventType": "run",
-      "team": "Pakistan",
+      "team": "England",
       "actor": "Shaheen Afridi",
-      "message": "Quick single taken into the gap. (Pakistan)",
+      "message": "Quick single taken into the gap. (England)",
       "tags": [
         "run"
       ],
@@ -13621,9 +13631,9 @@
       "sequence": 958,
       "period": "1st innings",
       "eventType": "six",
-      "team": "Pakistan",
+      "team": "England",
       "actor": "Virat Kohli",
-      "message": "Smashed straight down the ground for six. (Pakistan)",
+      "message": "Smashed straight down the ground for six. (England)",
       "tags": [
         "six"
       ],
@@ -13651,9 +13661,9 @@
       "sequence": 960,
       "period": "1st innings",
       "eventType": "over_end",
-      "team": "Pakistan",
+      "team": "England",
       "actor": "Mitchell Starc",
-      "message": "End of the over with tidy bowling. (Pakistan)",
+      "message": "End of the over with tidy bowling. (England)",
       "tags": [
         "over"
       ]
@@ -13664,9 +13674,9 @@
       "sequence": 961,
       "period": "2nd innings",
       "eventType": "start",
-      "team": "England",
+      "team": "Pakistan",
       "actor": "Pat Cummins",
-      "message": "The innings begins with the openers walking out. (England)",
+      "message": "The innings begins with the openers walking out. (Pakistan)",
       "tags": [
         "start"
       ]
@@ -13694,9 +13704,9 @@
       "sequence": 963,
       "period": "2nd innings",
       "eventType": "four",
-      "team": "England",
+      "team": "Pakistan",
       "actor": "Babar Azam",
-      "message": "Cracking cover drive for four. (England)",
+      "message": "Cracking cover drive for four. (Pakistan)",
       "tags": [
         "boundary"
       ],
@@ -13728,9 +13738,9 @@
       "sequence": 965,
       "period": "2nd innings",
       "eventType": "wicket",
-      "team": "England",
+      "team": "Pakistan",
       "actor": "Rohit Sharma",
-      "message": "Wicket! A sharp catch at slip. (England)",
+      "message": "Wicket! A sharp catch at slip. (Pakistan)",
       "tags": [
         "wicket"
       ]
@@ -13754,9 +13764,9 @@
       "sequence": 967,
       "period": "2nd innings",
       "eventType": "start",
-      "team": "England",
+      "team": "Pakistan",
       "actor": "Shubman Gill",
-      "message": "The innings begins with the openers walking out. (England)",
+      "message": "The innings begins with the openers walking out. (Pakistan)",
       "tags": [
         "start"
       ]
@@ -13784,9 +13794,9 @@
       "sequence": 969,
       "period": "2nd innings",
       "eventType": "four",
-      "team": "England",
+      "team": "Pakistan",
       "actor": "Pat Cummins",
-      "message": "Cracking cover drive for four. (England)",
+      "message": "Cracking cover drive for four. (Pakistan)",
       "tags": [
         "boundary"
       ],
@@ -13818,9 +13828,9 @@
       "sequence": 971,
       "period": "2nd innings",
       "eventType": "wicket",
-      "team": "England",
+      "team": "Pakistan",
       "actor": "Babar Azam",
-      "message": "Wicket! A sharp catch at slip. (England)",
+      "message": "Wicket! A sharp catch at slip. (Pakistan)",
       "tags": [
         "wicket"
       ]
@@ -13844,9 +13854,9 @@
       "sequence": 973,
       "period": "2nd innings",
       "eventType": "start",
-      "team": "England",
+      "team": "Pakistan",
       "actor": "Rohit Sharma",
-      "message": "The innings begins with the openers walking out. (England)",
+      "message": "The innings begins with the openers walking out. (Pakistan)",
       "tags": [
         "start"
       ]
@@ -13874,9 +13884,9 @@
       "sequence": 975,
       "period": "2nd innings",
       "eventType": "four",
-      "team": "England",
+      "team": "Pakistan",
       "actor": "Shubman Gill",
-      "message": "Cracking cover drive for four. (England)",
+      "message": "Cracking cover drive for four. (Pakistan)",
       "tags": [
         "boundary"
       ],
@@ -13908,9 +13918,9 @@
       "sequence": 977,
       "period": "2nd innings",
       "eventType": "wicket",
-      "team": "England",
+      "team": "Pakistan",
       "actor": "Pat Cummins",
-      "message": "Wicket! A sharp catch at slip. (England)",
+      "message": "Wicket! A sharp catch at slip. (Pakistan)",
       "tags": [
         "wicket"
       ]
@@ -13934,9 +13944,9 @@
       "sequence": 979,
       "period": "2nd innings",
       "eventType": "start",
-      "team": "England",
+      "team": "Pakistan",
       "actor": "Babar Azam",
-      "message": "The innings begins with the openers walking out. (England)",
+      "message": "The innings begins with the openers walking out. (Pakistan)",
       "tags": [
         "start"
       ]
@@ -13964,9 +13974,9 @@
       "sequence": 981,
       "period": "2nd innings",
       "eventType": "four",
-      "team": "England",
+      "team": "Pakistan",
       "actor": "Rohit Sharma",
-      "message": "Cracking cover drive for four. (England)",
+      "message": "Cracking cover drive for four. (Pakistan)",
       "tags": [
         "boundary"
       ],
@@ -13998,9 +14008,9 @@
       "sequence": 983,
       "period": "2nd innings",
       "eventType": "wicket",
-      "team": "England",
+      "team": "Pakistan",
       "actor": "Shubman Gill",
-      "message": "Wicket! A sharp catch at slip. (England)",
+      "message": "Wicket! A sharp catch at slip. (Pakistan)",
       "tags": [
         "wicket"
       ]
@@ -14024,9 +14034,9 @@
       "sequence": 985,
       "period": "2nd innings",
       "eventType": "start",
-      "team": "England",
+      "team": "Pakistan",
       "actor": "Pat Cummins",
-      "message": "The innings begins with the openers walking out. (England)",
+      "message": "The innings begins with the openers walking out. (Pakistan)",
       "tags": [
         "start"
       ]
@@ -14054,9 +14064,9 @@
       "sequence": 987,
       "period": "2nd innings",
       "eventType": "four",
-      "team": "England",
+      "team": "Pakistan",
       "actor": "Babar Azam",
-      "message": "Cracking cover drive for four. (England)",
+      "message": "Cracking cover drive for four. (Pakistan)",
       "tags": [
         "boundary"
       ],
@@ -14088,9 +14098,9 @@
       "sequence": 989,
       "period": "2nd innings",
       "eventType": "wicket",
-      "team": "England",
+      "team": "Pakistan",
       "actor": "Rohit Sharma",
-      "message": "Wicket! A sharp catch at slip. (England)",
+      "message": "Wicket! A sharp catch at slip. (Pakistan)",
       "tags": [
         "wicket"
       ]
@@ -14114,9 +14124,9 @@
       "sequence": 991,
       "period": "2nd innings",
       "eventType": "start",
-      "team": "England",
+      "team": "Pakistan",
       "actor": "Shubman Gill",
-      "message": "The innings begins with the openers walking out. (England)",
+      "message": "The innings begins with the openers walking out. (Pakistan)",
       "tags": [
         "start"
       ]
@@ -14144,9 +14154,9 @@
       "sequence": 993,
       "period": "2nd innings",
       "eventType": "four",
-      "team": "England",
+      "team": "Pakistan",
       "actor": "Pat Cummins",
-      "message": "Cracking cover drive for four. (England)",
+      "message": "Cracking cover drive for four. (Pakistan)",
       "tags": [
         "boundary"
       ],
@@ -14178,9 +14188,9 @@
       "sequence": 995,
       "period": "2nd innings",
       "eventType": "wicket",
-      "team": "England",
+      "team": "Pakistan",
       "actor": "Babar Azam",
-      "message": "Wicket! A sharp catch at slip. (England)",
+      "message": "Wicket! A sharp catch at slip. (Pakistan)",
       "tags": [
         "wicket"
       ]
@@ -14204,9 +14214,9 @@
       "sequence": 997,
       "period": "2nd innings",
       "eventType": "start",
-      "team": "England",
+      "team": "Pakistan",
       "actor": "Rohit Sharma",
-      "message": "The innings begins with the openers walking out. (England)",
+      "message": "The innings begins with the openers walking out. (Pakistan)",
       "tags": [
         "start"
       ]
@@ -14234,9 +14244,9 @@
       "sequence": 999,
       "period": "2nd innings",
       "eventType": "four",
-      "team": "England",
+      "team": "Pakistan",
       "actor": "Shubman Gill",
-      "message": "Cracking cover drive for four. (England)",
+      "message": "Cracking cover drive for four. (Pakistan)",
       "tags": [
         "boundary"
       ],
@@ -14268,9 +14278,9 @@
       "sequence": 1001,
       "period": "2nd innings",
       "eventType": "wicket",
-      "team": "England",
+      "team": "Pakistan",
       "actor": "Pat Cummins",
-      "message": "Wicket! A sharp catch at slip. (England)",
+      "message": "Wicket! A sharp catch at slip. (Pakistan)",
       "tags": [
         "wicket"
       ]
@@ -14294,9 +14304,9 @@
       "sequence": 1003,
       "period": "2nd innings",
       "eventType": "start",
-      "team": "England",
+      "team": "Pakistan",
       "actor": "Babar Azam",
-      "message": "The innings begins with the openers walking out. (England)",
+      "message": "The innings begins with the openers walking out. (Pakistan)",
       "tags": [
         "start"
       ]
@@ -14324,9 +14334,9 @@
       "sequence": 1005,
       "period": "2nd innings",
       "eventType": "four",
-      "team": "England",
+      "team": "Pakistan",
       "actor": "Rohit Sharma",
-      "message": "Cracking cover drive for four. (England)",
+      "message": "Cracking cover drive for four. (Pakistan)",
       "tags": [
         "boundary"
       ],
@@ -14358,9 +14368,9 @@
       "sequence": 1007,
       "period": "2nd innings",
       "eventType": "wicket",
-      "team": "England",
+      "team": "Pakistan",
       "actor": "Shubman Gill",
-      "message": "Wicket! A sharp catch at slip. (England)",
+      "message": "Wicket! A sharp catch at slip. (Pakistan)",
       "tags": [
         "wicket"
       ]
@@ -14384,9 +14394,9 @@
       "sequence": 1009,
       "period": "2nd innings",
       "eventType": "start",
-      "team": "England",
+      "team": "Pakistan",
       "actor": "Pat Cummins",
-      "message": "The innings begins with the openers walking out. (England)",
+      "message": "The innings begins with the openers walking out. (Pakistan)",
       "tags": [
         "start"
       ]
@@ -14414,9 +14424,9 @@
       "sequence": 1011,
       "period": "2nd innings",
       "eventType": "four",
-      "team": "England",
+      "team": "Pakistan",
       "actor": "Babar Azam",
-      "message": "Cracking cover drive for four. (England)",
+      "message": "Cracking cover drive for four. (Pakistan)",
       "tags": [
         "boundary"
       ],
@@ -14448,9 +14458,9 @@
       "sequence": 1013,
       "period": "2nd innings",
       "eventType": "wicket",
-      "team": "England",
+      "team": "Pakistan",
       "actor": "Rohit Sharma",
-      "message": "Wicket! A sharp catch at slip. (England)",
+      "message": "Wicket! A sharp catch at slip. (Pakistan)",
       "tags": [
         "wicket"
       ]
@@ -14474,9 +14484,9 @@
       "sequence": 1015,
       "period": "2nd innings",
       "eventType": "start",
-      "team": "England",
+      "team": "Pakistan",
       "actor": "Shubman Gill",
-      "message": "The innings begins with the openers walking out. (England)",
+      "message": "The innings begins with the openers walking out. (Pakistan)",
       "tags": [
         "start"
       ]
@@ -14504,9 +14514,9 @@
       "sequence": 1017,
       "period": "2nd innings",
       "eventType": "four",
-      "team": "England",
+      "team": "Pakistan",
       "actor": "Pat Cummins",
-      "message": "Cracking cover drive for four. (England)",
+      "message": "Cracking cover drive for four. (Pakistan)",
       "tags": [
         "boundary"
       ],
@@ -14538,9 +14548,9 @@
       "sequence": 1019,
       "period": "2nd innings",
       "eventType": "wicket",
-      "team": "England",
+      "team": "Pakistan",
       "actor": "Babar Azam",
-      "message": "Wicket! A sharp catch at slip. (England)",
+      "message": "Wicket! A sharp catch at slip. (Pakistan)",
       "tags": [
         "wicket"
       ]
@@ -14577,9 +14587,9 @@
       "sequence": 1022,
       "period": "1st innings",
       "eventType": "run",
-      "team": "Pakistan",
+      "team": "England",
       "actor": "Virat Kohli",
-      "message": "Quick single taken into the gap. (Pakistan)",
+      "message": "Quick single taken into the gap. (England)",
       "tags": [
         "run"
       ],
@@ -14611,9 +14621,9 @@
       "sequence": 1024,
       "period": "1st innings",
       "eventType": "six",
-      "team": "Pakistan",
+      "team": "England",
       "actor": "Mitchell Starc",
-      "message": "Smashed straight down the ground for six. (Pakistan)",
+      "message": "Smashed straight down the ground for six. (England)",
       "tags": [
         "six"
       ],
@@ -14641,9 +14651,9 @@
       "sequence": 1026,
       "period": "1st innings",
       "eventType": "over_end",
-      "team": "Pakistan",
+      "team": "England",
       "actor": "Ben Stokes",
-      "message": "End of the over with tidy bowling. (Pakistan)",
+      "message": "End of the over with tidy bowling. (England)",
       "tags": [
         "over"
       ]
@@ -14667,9 +14677,9 @@
       "sequence": 1028,
       "period": "1st innings",
       "eventType": "run",
-      "team": "Pakistan",
+      "team": "England",
       "actor": "Shaheen Afridi",
-      "message": "Quick single taken into the gap. (Pakistan)",
+      "message": "Quick single taken into the gap. (England)",
       "tags": [
         "run"
       ],
@@ -14701,9 +14711,9 @@
       "sequence": 1030,
       "period": "1st innings",
       "eventType": "six",
-      "team": "Pakistan",
+      "team": "England",
       "actor": "Virat Kohli",
-      "message": "Smashed straight down the ground for six. (Pakistan)",
+      "message": "Smashed straight down the ground for six. (England)",
       "tags": [
         "six"
       ],
@@ -14731,9 +14741,9 @@
       "sequence": 1032,
       "period": "1st innings",
       "eventType": "over_end",
-      "team": "Pakistan",
+      "team": "England",
       "actor": "Mitchell Starc",
-      "message": "End of the over with tidy bowling. (Pakistan)",
+      "message": "End of the over with tidy bowling. (England)",
       "tags": [
         "over"
       ]
@@ -14757,9 +14767,9 @@
       "sequence": 1034,
       "period": "1st innings",
       "eventType": "run",
-      "team": "Pakistan",
+      "team": "England",
       "actor": "Ben Stokes",
-      "message": "Quick single taken into the gap. (Pakistan)",
+      "message": "Quick single taken into the gap. (England)",
       "tags": [
         "run"
       ],
@@ -14791,9 +14801,9 @@
       "sequence": 1036,
       "period": "1st innings",
       "eventType": "six",
-      "team": "Pakistan",
+      "team": "England",
       "actor": "Shaheen Afridi",
-      "message": "Smashed straight down the ground for six. (Pakistan)",
+      "message": "Smashed straight down the ground for six. (England)",
       "tags": [
         "six"
       ],
@@ -14821,9 +14831,9 @@
       "sequence": 1038,
       "period": "1st innings",
       "eventType": "over_end",
-      "team": "Pakistan",
+      "team": "England",
       "actor": "Virat Kohli",
-      "message": "End of the over with tidy bowling. (Pakistan)",
+      "message": "End of the over with tidy bowling. (England)",
       "tags": [
         "over"
       ]
@@ -14847,9 +14857,9 @@
       "sequence": 1040,
       "period": "1st innings",
       "eventType": "run",
-      "team": "Pakistan",
+      "team": "England",
       "actor": "Mitchell Starc",
-      "message": "Quick single taken into the gap. (Pakistan)",
+      "message": "Quick single taken into the gap. (England)",
       "tags": [
         "run"
       ],

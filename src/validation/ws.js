@@ -10,8 +10,14 @@ export const wsMessageSchema = z.discriminatedUnion('type', [
     matchId: matchIdSchema,
   }),
   z.object({
+    type: z.literal('subscribeAll'),
+  }),
+  z.object({
     type: z.literal('unsubscribe'),
     matchId: matchIdSchema,
+  }),
+  z.object({
+    type: z.literal('unsubscribeAll'),
   }),
   z.object({
     type: z.literal('setSubscriptions'),
