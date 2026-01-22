@@ -2,6 +2,8 @@ import "dotenv/config";
 import fs from "fs/promises";
 
 const DELAY_MS = Number.parseInt(process.env.DELAY_MS || "250", 10);
+const NEW_MATCH_DELAY_MIN_MS = 2000;
+const NEW_MATCH_DELAY_MAX_MS = 3000;
 const DEFAULT_MATCH_DURATION_MINUTES = Number.parseInt(
   process.env.SEED_MATCH_DURATION_MINUTES || "120",
   10
@@ -326,6 +328,82 @@ function normalizeCricketFeed(entries, match) {
   return ordered;
 }
 
+function replaceTrailingTeam(message, replacements) {
+  if (typeof message !== "string") {
+    return message;
+  }
+  const match = message.match(/\(([^)]+)\)\s*$/);
+  if (!match) {
+    return message;
+  }
+  const nextTeam = replacements.get(match[1]);
+  if (!nextTeam) {
+    return message;
+  }
+  return message.replace(/\([^)]+\)\s*$/, `(${nextTeam})`);
+}
+
+function cloneCommentaryEntries(entries, templateMatch, targetMatch) {
+  const replacements = new Map([
+    [templateMatch.homeTeam, targetMatch.homeTeam],
+    [templateMatch.awayTeam, targetMatch.awayTeam],
+  ]);
+
+  return entries.map((entry) => {
+    const next = { ...entry, matchId: targetMatch.id };
+    if (entry.team === templateMatch.homeTeam) {
+      next.team = targetMatch.homeTeam;
+    } else if (entry.team === templateMatch.awayTeam) {
+      next.team = targetMatch.awayTeam;
+    }
+    next.message = replaceTrailingTeam(entry.message, replacements);
+    return next;
+  });
+}
+
+function expandFeedForMatches(feed, seedMatches) {
+  if (!Array.isArray(seedMatches) || seedMatches.length === 0) {
+    return feed;
+  }
+
+  const byMatchId = new Map();
+  for (const entry of feed) {
+    if (!Number.isInteger(entry.matchId)) {
+      continue;
+    }
+    if (!byMatchId.has(entry.matchId)) {
+      byMatchId.set(entry.matchId, []);
+    }
+    byMatchId.get(entry.matchId).push(entry);
+  }
+
+  const matchById = new Map();
+  const templateBySport = new Map();
+  for (const match of seedMatches) {
+    matchById.set(match.id, match);
+    if (!templateBySport.has(match.sport) && byMatchId.has(match.id)) {
+      templateBySport.set(match.sport, match);
+    }
+  }
+
+  const expanded = [...feed];
+  for (const match of seedMatches) {
+    if (byMatchId.has(match.id)) {
+      continue;
+    }
+    const templateMatch = templateBySport.get(match.sport);
+    if (!templateMatch) {
+      continue;
+    }
+    const templateEntries = byMatchId.get(templateMatch.id) || [];
+    expanded.push(
+      ...cloneCommentaryEntries(templateEntries, templateMatch, match)
+    );
+  }
+
+  return expanded;
+}
+
 function buildRandomizedFeed(feed, matchMap) {
   const buckets = new Map();
   for (const entry of feed) {
@@ -395,6 +473,21 @@ async function updateMatchScore(matchId, homeScore, awayScore) {
   }
 }
 
+function randomMatchDelay() {
+  const range = NEW_MATCH_DELAY_MAX_MS - NEW_MATCH_DELAY_MIN_MS;
+  return NEW_MATCH_DELAY_MIN_MS + Math.floor(Math.random() * (range + 1));
+}
+
+async function endMatch(matchId) {
+  const response = await fetch(`${API_URL}/matches/${matchId}/end`, {
+    method: "PATCH",
+    headers: { "content-type": "application/json" },
+  });
+  if (!response.ok) {
+    throw new Error(`Failed to end match: ${response.status}`);
+  }
+}
+
 async function seed() {
   console.log(`📡 Seeding via API: ${API_URL}`);
 
@@ -425,6 +518,8 @@ async function seed() {
       if (!match || (FORCE_LIVE && !isLiveMatch(match))) {
         match = await createMatch(seedMatch);
         matchKeyMap.set(key, match);
+        const delayMs = randomMatchDelay();
+        await new Promise((resolve) => setTimeout(resolve, delayMs));
       }
       if (Number.isInteger(seedMatch.id)) {
         matchMap.set(seedMatch.id, {
@@ -457,7 +552,18 @@ async function seed() {
     await updateMatchScore(matchId, 0, 0);
   }
 
-  const randomizedFeed = buildRandomizedFeed(feed, matchMap);
+  const expandedFeed = expandFeedForMatches(feed, seedMatches);
+  const randomizedFeed = buildRandomizedFeed(expandedFeed, matchMap);
+  const remainingByMatchId = new Map();
+  for (const entry of randomizedFeed) {
+    if (!Number.isInteger(entry.matchId)) {
+      continue;
+    }
+    remainingByMatchId.set(
+      entry.matchId,
+      (remainingByMatchId.get(entry.matchId) || 0) + 1
+    );
+  }
 
   for (let i = 0; i < randomizedFeed.length; i += 1) {
     const entry = randomizedFeed[i];
@@ -485,6 +591,17 @@ async function seed() {
       console.log(
         `📊 [Match ${match.id}] Score updated: ${target.score.home}-${target.score.away}`
       );
+    }
+
+    if (Number.isInteger(entry.matchId)) {
+      const remaining = (remainingByMatchId.get(entry.matchId) || 1) - 1;
+      if (remaining <= 0) {
+        remainingByMatchId.delete(entry.matchId);
+        await endMatch(match.id);
+        console.log(`🏁 [Match ${match.id}] Match finished.`);
+      } else {
+        remainingByMatchId.set(entry.matchId, remaining);
+      }
     }
 
     if (DELAY_MS > 0) {

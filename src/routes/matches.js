@@ -145,3 +145,36 @@ matchRouter.patch('/:id/score', async (req, res) => {
     res.status(500).json({ error: 'Failed to update score' });
   }
 });
+
+matchRouter.patch('/:id/end', async (req, res) => {
+  const paramsParsed = matchIdParamSchema.safeParse(req.params);
+  if (!paramsParsed.success) {
+    return res
+      .status(400)
+      .json({ error: 'Invalid match id', details: formatZodError(paramsParsed.error) });
+  }
+
+  const matchId = paramsParsed.data.id;
+
+  try {
+    const [existing] = await db
+      .select({ id: matches.id })
+      .from(matches)
+      .where(eq(matches.id, matchId))
+      .limit(1);
+
+    if (!existing) {
+      return res.status(404).json({ error: 'Match not found' });
+    }
+
+    const [updated] = await db
+      .update(matches)
+      .set({ status: MATCH_STATUS.FINISHED, endTime: new Date() })
+      .where(eq(matches.id, matchId))
+      .returning();
+
+    res.json({ data: updated });
+  } catch (err) {
+    res.status(500).json({ error: 'Failed to end match' });
+  }
+});

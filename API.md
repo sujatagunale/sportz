@@ -220,6 +220,24 @@ Side effect:
 
 - If a WebSocket client is subscribed to the match, it receives a `score_update` event.
 
+### End Match
+
+`PATCH /matches/:id/end`
+
+Response:
+
+```json
+{ "data": {/* Match */} }
+```
+
+Notes:
+
+- Sets `status` to `finished` and `endTime` to the current server time.
+
+Errors:
+
+- `404` if match is not found.
+
 ## WebSocket API
 
 ### Connect
