@@ -478,6 +478,10 @@ function randomMatchDelay() {
   return NEW_MATCH_DELAY_MIN_MS + Math.floor(Math.random() * (range + 1));
 }
 
+function delay(ms) {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
 async function endMatch(matchId) {
   const response = await fetch(`${API_URL}/matches/${matchId}/end`, {
     method: "PATCH",
@@ -488,15 +492,77 @@ async function endMatch(matchId) {
   }
 }
 
+async function streamCommentaryForMatch(matchState, entries) {
+  if (!Array.isArray(entries) || entries.length === 0) {
+    console.warn(`⚠️  No commentary entries for match ${matchState.match.id}.`);
+    return;
+  }
+
+  const match = matchState.match;
+  const isCricket = String(match.sport).toLowerCase() === "cricket";
+  const orderedEntries = isCricket
+    ? normalizeCricketFeed(entries, match)
+    : entries;
+
+  for (const entry of orderedEntries) {
+    const row = await insertCommentary(match.id, entry);
+    console.log(`📣 [Match ${match.id}] ${row.message}`);
+
+    const delta = isCricket
+      ? cricketScoreDelta(entry, match, matchState)
+      : scoreDeltaFromEntry(entry, match) ?? fakeScoreDelta(matchState);
+    if (delta) {
+      matchState.score.home += delta.home;
+      matchState.score.away += delta.away;
+      await updateMatchScore(match.id, matchState.score.home, matchState.score.away);
+      console.log(
+        `📊 [Match ${match.id}] Score updated: ${matchState.score.home}-${matchState.score.away}`
+      );
+    }
+
+    if (DELAY_MS > 0) {
+      await delay(DELAY_MS);
+    }
+  }
+
+  await endMatch(match.id);
+  console.log(`🏁 [Match ${match.id}] Match finished.`);
+}
+
 async function seed() {
   console.log(`📡 Seeding via API: ${API_URL}`);
 
   const { feed, matches: seedMatches } = await loadSeedData();
+  const expandedFeed = expandFeedForMatches(feed, seedMatches);
+  const feedByMatchId = new Map();
+  for (const entry of expandedFeed) {
+    if (!Number.isInteger(entry.matchId)) {
+      continue;
+    }
+    if (!feedByMatchId.has(entry.matchId)) {
+      feedByMatchId.set(entry.matchId, []);
+    }
+    feedByMatchId.get(entry.matchId).push(entry);
+  }
   const matchesList = await fetchMatches();
 
-  const matchMap = new Map();
+  const desiredMatchKeys = new Set();
+  if (Array.isArray(seedMatches) && seedMatches.length > 0) {
+    for (const seedMatch of seedMatches) {
+      desiredMatchKeys.add(
+        `${seedMatch.sport}|${seedMatch.homeTeam}|${seedMatch.awayTeam}`
+      );
+    }
+  }
+
   const matchKeyMap = new Map();
   for (const match of matchesList) {
+    if (desiredMatchKeys.size > 0) {
+      const key = `${match.sport}|${match.homeTeam}|${match.awayTeam}`;
+      if (!desiredMatchKeys.has(key)) {
+        continue;
+      }
+    }
     if (FORCE_LIVE && !isLiveMatch(match)) {
       continue;
     }
@@ -504,110 +570,52 @@ async function seed() {
     if (!matchKeyMap.has(key)) {
       matchKeyMap.set(key, match);
     }
-    matchMap.set(match.id, {
+  }
+
+  if (!Array.isArray(seedMatches) || seedMatches.length === 0) {
+    throw new Error("Seed matches are required to create commentary streams.");
+  }
+
+  const streams = [];
+  const matchMap = new Map();
+  const startTime = Date.now();
+
+  for (let i = 0; i < seedMatches.length; i += 1) {
+    const seedMatch = seedMatches[i];
+    const desiredDelayMs = i < 3 ? 0 : (i - 2) * 2000;
+    const elapsedMs = Date.now() - startTime;
+    const waitMs = desiredDelayMs - elapsedMs;
+    if (waitMs > 0) {
+      await delay(waitMs);
+    }
+
+    const key = `${seedMatch.sport}|${seedMatch.homeTeam}|${seedMatch.awayTeam}`;
+    let match = matchKeyMap.get(key);
+    if (!match || (FORCE_LIVE && !isLiveMatch(match))) {
+      match = await createMatch(seedMatch);
+      matchKeyMap.set(key, match);
+    }
+
+    const matchState = {
       match,
       score: { home: match.homeScore ?? 0, away: match.awayScore ?? 0 },
       fakeNext: Math.random() < 0.5 ? "home" : "away",
-    });
-  }
+    };
+    matchMap.set(seedMatch.id, matchState);
 
-  if (Array.isArray(seedMatches) && seedMatches.length > 0) {
-    for (const seedMatch of seedMatches) {
-      const key = `${seedMatch.sport}|${seedMatch.homeTeam}|${seedMatch.awayTeam}`;
-      let match = matchKeyMap.get(key);
-      if (!match || (FORCE_LIVE && !isLiveMatch(match))) {
-        match = await createMatch(seedMatch);
-        matchKeyMap.set(key, match);
-        const delayMs = randomMatchDelay();
-        await new Promise((resolve) => setTimeout(resolve, delayMs));
-      }
-      if (Number.isInteger(seedMatch.id)) {
-        matchMap.set(seedMatch.id, {
-          match,
-          score: { home: match.homeScore ?? 0, away: match.awayScore ?? 0 },
-          fakeNext: Math.random() < 0.5 ? "home" : "away",
-        });
-      }
-      matchMap.set(match.id, {
-        match,
-        score: { home: match.homeScore ?? 0, away: match.awayScore ?? 0 },
-        fakeNext: Math.random() < 0.5 ? "home" : "away",
-      });
-    }
+    matchState.score.home = 0;
+    matchState.score.away = 0;
+    await updateMatchScore(match.id, 0, 0);
+
+    const entries = feedByMatchId.get(seedMatch.id) || [];
+    streams.push(streamCommentaryForMatch(matchState, entries));
   }
 
   if (matchMap.size === 0) {
     throw new Error("No matches found or created in the database.");
   }
 
-  const resetIds = new Set();
-  for (const entry of matchMap.values()) {
-    const matchId = entry.match?.id;
-    if (!Number.isInteger(matchId) || resetIds.has(matchId)) {
-      continue;
-    }
-    resetIds.add(matchId);
-    entry.score.home = 0;
-    entry.score.away = 0;
-    await updateMatchScore(matchId, 0, 0);
-  }
-
-  const expandedFeed = expandFeedForMatches(feed, seedMatches);
-  const randomizedFeed = buildRandomizedFeed(expandedFeed, matchMap);
-  const remainingByMatchId = new Map();
-  for (const entry of randomizedFeed) {
-    if (!Number.isInteger(entry.matchId)) {
-      continue;
-    }
-    remainingByMatchId.set(
-      entry.matchId,
-      (remainingByMatchId.get(entry.matchId) || 0) + 1
-    );
-  }
-
-  for (let i = 0; i < randomizedFeed.length; i += 1) {
-    const entry = randomizedFeed[i];
-    const target = getMatchEntry(entry, matchMap);
-    if (!target) {
-      console.warn(
-        "⚠️  Skipping entry: matchId missing or not found:",
-        entry.message
-      );
-      continue;
-    }
-    const match = target.match;
-
-    const row = await insertCommentary(match.id, entry);
-    console.log(`📣 [Match ${match.id}] ${row.message}`);
-
-    const isCricket = String(match.sport).toLowerCase() === "cricket";
-    const delta = isCricket
-      ? cricketScoreDelta(entry, match, target)
-      : scoreDeltaFromEntry(entry, match) ?? fakeScoreDelta(target);
-    if (delta) {
-      target.score.home += delta.home;
-      target.score.away += delta.away;
-      await updateMatchScore(match.id, target.score.home, target.score.away);
-      console.log(
-        `📊 [Match ${match.id}] Score updated: ${target.score.home}-${target.score.away}`
-      );
-    }
-
-    if (Number.isInteger(entry.matchId)) {
-      const remaining = (remainingByMatchId.get(entry.matchId) || 1) - 1;
-      if (remaining <= 0) {
-        remainingByMatchId.delete(entry.matchId);
-        await endMatch(match.id);
-        console.log(`🏁 [Match ${match.id}] Match finished.`);
-      } else {
-        remainingByMatchId.set(entry.matchId, remaining);
-      }
-    }
-
-    if (DELAY_MS > 0) {
-      await new Promise((resolve) => setTimeout(resolve, DELAY_MS));
-    }
-  }
+  await Promise.all(streams);
 }
 
 seed().catch((err) => {
